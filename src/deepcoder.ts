@@ -63,9 +63,19 @@ class JupyterlabCodeOptimizer {
       formatter?: string,
       notebook?: Notebook
     ) {
+      console.log("optimize feature:",formatter)
       return this.optimizeCells(false, config, formatter, notebook);
     }
-  
+    // /*Todo: Automatic Mixed Precison*/
+    // public async optimizeAllCodeCells_withAMP(
+    //   config: any,
+    //   formatter?: string,
+    //   notebook?: Notebook
+    // ) {
+    //   return this.optimizeCells(false, config, formatter, notebook);
+    // }
+
+
     private getCodeCells(selectedOnly = true, notebook?: Notebook): CodeCell[] {
       if (!this.notebookTracker.currentWidget) {
         return [];
@@ -141,10 +151,13 @@ class JupyterlabCodeOptimizer {
           this.working = false;
           return;
         }
+        console.log("I am here")
         const defaultFormatters = this.getDefaultFormatters(config);
+        console.log("default Formatters: ", defaultFormatters)
         const formattersToUse =
           formatter !== undefined ? [formatter] : defaultFormatters;
-  
+        console.log("formattersToUse: ", formattersToUse)
+
         if (formattersToUse.length === 0) {
           await showErrorMessage(
             'Jupyterlab Code Formatter Error',
@@ -157,6 +170,7 @@ class JupyterlabCodeOptimizer {
             continue;
           }
           const currentTexts = selectedCells.map(cell => cell.model.value.text);
+          console.log("current texts:",currentTexts)
           const optimizedTexts = await this.optimizeCode(
             currentTexts,
             formatterToUse,

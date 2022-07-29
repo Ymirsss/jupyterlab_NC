@@ -1,6 +1,24 @@
 export namespace Constants {
     export const SHORT_PLUGIN_NAME = 'jupyterlab_deepCoder';
     export const OPTIMIZE_COMMAND = `${SHORT_PLUGIN_NAME}:optimize`;
+
+    /*workaround 1: single-framework*/
+    export const OPTIMIZE_AMP_COMMAND = `${SHORT_PLUGIN_NAME}:optimize_amp`;
+    export const OPTIMIZE_INC_DQ_COMMAND = `${SHORT_PLUGIN_NAME}:optimize_inc_dq`;
+    export const OPTIMIZE_JIT_COMMAND = `${SHORT_PLUGIN_NAME}:optimize_jit`;
+    export const OPTIMIZE_CL_COMMAND = `${SHORT_PLUGIN_NAME}:optimize_cl`;
+    export const OPTIMIZE_CToC_COMMAND = `${SHORT_PLUGIN_NAME}:optimize_ctoc`;
+    export const OPTIMIZE_PROFILER_COMMAND = `${SHORT_PLUGIN_NAME}:optimize_profiler`;
+
+    /*workaround 2: multi-framework*/
+    // export const OPTIMIZE_PT_COMMAND = `${SHORT_PLUGIN_NAME}:optimize_pytorch`;
+    // export const OPTIMIZE_TF_COMMAND = `${SHORT_PLUGIN_NAME}:optimize_tensorflow`;
+    // export const OPTIMIZE_KERAS_COMMAND = `${SHORT_PLUGIN_NAME}:optimize_keras`;
+
+
+
+
+
     export const OPTIMIZE_ALL_COMMAND = `${SHORT_PLUGIN_NAME}:optimize_all`;
     // TODO: Extract this to style and import svg as string
     export const ICON_FORMAT_ALL_SVG =
