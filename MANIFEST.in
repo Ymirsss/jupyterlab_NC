@@ -8,8 +8,9 @@ include install.json
 include ts*.json
 include *.config.js
 include yarn.lock
+include jupyter-config/jupyterlab_code_formatter.json
 
-graft Neural_Coder/labextension
+graft jupyterlab_deepCoder/labextension
 
 # Javascript files
 graft src

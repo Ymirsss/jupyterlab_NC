@@ -112,6 +112,11 @@
           ]
         }
       ]
+    },
+    "_build": {
+      "load": "static\\remoteEntry.7dccabc403ed97b4c34d.js",
+      "extension": "./extension",
+      "style": "./style"
     }
   },
   "jupyter-releaser": {

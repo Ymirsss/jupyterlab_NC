@@ -13,7 +13,7 @@ HERE = Path(__file__).parent.resolve()
 pkg_json = json.loads((HERE / "package.json").read_bytes())
 
 # The name of the project
-name = "Neural_Coder"
+name = "jupyterlab_deepCoder"
 
 lab_path = (HERE / pkg_json["jupyterlab"]["outputDir"])
 
@@ -28,6 +28,16 @@ labext_name = pkg_json["name"]
 data_files_spec = [
     ("share/jupyter/labextensions/%s" % labext_name, str(lab_path.relative_to(HERE)), "**"),
     ("share/jupyter/labextensions/%s" % labext_name, str("."), "install.json"),
+     (
+        "etc/jupyter/jupyter_server_config.d",
+        "jupyter-config/jupyter_server_config.d",
+        "jupyterlab_code_formatter.json",
+    ),
+    (
+        "etc/jupyter/jupyter_notebook_config.d",
+        "jupyter-config/jupyter_notebook_config.d",
+        "jupyterlab_code_formatter.json",
+    ),
 ]
 
 long_description = (HERE / "README.md").read_text(encoding="utf8")
@@ -50,7 +60,8 @@ setup_args = dict(
     license_file="LICENSE",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    packages=setuptools.find_packages(),
+    # packages=setuptools.find_packages(),
+    packages=['jupyterlab_deepCoder'],
     zip_safe=False,
     include_package_data=True,
     python_requires=">=3.7",

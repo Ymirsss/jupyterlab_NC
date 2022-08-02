@@ -13,7 +13,7 @@ class JupyterlabCodeOptimizer {
       this.client = client;
       this.working = false;
     }
-  
+
     protected optimizeCode(
       code: string[],
       formatter: string,
@@ -50,13 +50,13 @@ class JupyterlabCodeOptimizer {
       return this.optimizeCells(true, config, formatter);
     }
   
-    public async optimizeSelectedCodeCells(
-      config: any,
-      formatter?: string,
-      notebook?: Notebook
-    ) {
-      return this.optimizeCells(true, config, formatter, notebook);
-    }
+    // public async optimizeSelectedCodeCells(
+    //   config: any,
+    //   formatter?: string,
+    //   notebook?: Notebook
+    // ) {
+    //   return this.optimizeCells(true, config, formatter, notebook);
+    // }
   
     public async optimizeAllCodeCells(
       config: any,
@@ -84,56 +84,57 @@ class JupyterlabCodeOptimizer {
       notebook = notebook || this.notebookTracker.currentWidget.content;
       notebook.widgets.forEach((cell: Cell) => {
         if (cell.model.type === 'code') {
+          codeCells.push(cell as CodeCell);
         //  if (!selectedOnly || notebook.isSelectedOrActive(cell)) {
-       //     codeCells.push(cell as CodeCell);
-         // }
+        //    codeCells.push(cell as CodeCell);
+        //  }
         }
       });
       return codeCells;
     }
   
-    private getNotebookType() {
-      if (!this.notebookTracker.currentWidget) {
-        return null;
-      }
+    // private getNotebookType() {
+    //   if (!this.notebookTracker.currentWidget) {
+    //     return null;
+    //   }
   
-     // const metadata = this.notebookTracker.currentWidget.content.model.metadata.toJSON();
-      const metadata = false;
+    //  // const metadata = this.notebookTracker.currentWidget.content.model.metadata.toJSON();
+    //   const metadata = false;
   
-      if (!metadata) {
-        return null;
-      }
+    //   if (!metadata) {
+    //     return null;
+    //   }
   
-      // prefer kernelspec language
-      // @ts-ignore
-      if (metadata.kernelspec && metadata.kernelspec.language) {
-        // @ts-ignore
-        return metadata.kernelspec.language.toLowerCase();
-      }
+    //   // prefer kernelspec language
+    //   // @ts-ignore
+    //   if (metadata.kernelspec && metadata.kernelspec.language) {
+    //     // @ts-ignore
+    //     return metadata.kernelspec.language.toLowerCase();
+    //   }
   
-      // otherwise, check language info code mirror mode
-      // @ts-ignore
-      if (metadata.language_info && metadata.language_info.codemirror_mode) {
-        // @ts-ignore
-        return metadata.language_info.codemirror_mode.name.toLowerCase();
-      }
+    //   // otherwise, check language info code mirror mode
+    //   // @ts-ignore
+    //   if (metadata.language_info && metadata.language_info.codemirror_mode) {
+    //     // @ts-ignore
+    //     return metadata.language_info.codemirror_mode.name.toLowerCase();
+    //   }
   
-      return null;
-    }
+    //   return null;
+    // }
   
-    private getDefaultFormatters(config: any): Array<string> {
-      const notebookType = this.getNotebookType();
-      if (notebookType) {
-        const defaultFormatter =
-          config.preferences.default_formatter[notebookType];
-        if (defaultFormatter instanceof Array) {
-          return defaultFormatter;
-        } else if (defaultFormatter !== undefined) {
-          return [defaultFormatter];
-        }
-      }
-      return [];
-    }
+    // private getDefaultFormatters(config: any): Array<string> {
+    //   const notebookType = this.getNotebookType();
+    //   if (notebookType) {
+    //     const defaultFormatter =
+    //       config.preferences.default_formatter[notebookType];
+    //     if (defaultFormatter instanceof Array) {
+    //       return defaultFormatter;
+    //     } else if (defaultFormatter !== undefined) {
+    //       return [defaultFormatter];
+    //     }
+    //   }
+    //   return [];
+    // }
   
     private async optimizeCells(
       selectedOnly: boolean,
@@ -141,6 +142,7 @@ class JupyterlabCodeOptimizer {
       formatter?: string,
       notebook?: Notebook
     ) {
+      console.log("If it works: ", this.working)
       if (this.working) {
         return;
       }
@@ -148,60 +150,61 @@ class JupyterlabCodeOptimizer {
         this.working = true;
         const selectedCells = this.getCodeCells(selectedOnly, notebook);
         if (selectedCells.length === 0) {
+          console.log("seletedCells: ",selectedCells)
           this.working = false;
           return;
         }
         console.log("I am here")
-        const defaultFormatters = this.getDefaultFormatters(config);
-        console.log("default Formatters: ", defaultFormatters)
-        const formattersToUse =
-          formatter !== undefined ? [formatter] : defaultFormatters;
-        console.log("formattersToUse: ", formattersToUse)
+        // const defaultFormatters = this.getDefaultFormatters(config);
+        // console.log("default Formatters: ", defaultFormatters)
+        // const formattersToUse =
+        //   formatter !== undefined ? [formatter] : defaultFormatters;
+        // console.log("formattersToUse: ", formattersToUse)
 
-        if (formattersToUse.length === 0) {
-          await showErrorMessage(
-            'Jupyterlab Code Formatter Error',
-            `Unable to find default formatters to use, please file an issue on GitHub.`
-          );
-        }
+        // if (formattersToUse.length === 0) {
+        //   await showErrorMessage(
+        //     'Jupyterlab Code Formatter Error',
+        //     `Unable to find default formatters to use, please file an issue on GitHub.`
+        //   );
+        // }
   
-        for (let formatterToUse of formattersToUse) {
-          if (formatterToUse === 'noop' || formatterToUse === 'skip') {
-            continue;
-          }
-          const currentTexts = selectedCells.map(cell => cell.model.value.text);
-          console.log("current texts:",currentTexts)
-          const optimizedTexts = await this.optimizeCode(
-            currentTexts,
-            formatterToUse,
-            config[formatterToUse],
-            true
-          );
-          for (let i = 0; i < selectedCells.length; ++i) {
-            const cell = selectedCells[i];
-            const currentText = currentTexts[i];
-            const optimizedText = optimizedTexts.code[i];
-            if (cell.model.value.text === currentText) {
-              if (optimizedText.error) {
-                if (!(config.suppressFormatterErrors ?? false)) {
-                  await showErrorMessage(
-                    'Jupyterlab Code Formatter Error',
-                    optimizedText.error
-                  );
-                }
-              } else {
-                cell.model.value.text = optimizedText.code;
+        // for (let formatterToUse of formattersToUse) {
+        //   if (formatterToUse === 'noop' || formatterToUse === 'skip') {
+        //     continue;
+        //   }
+        const optimize_type = formatter !== undefined ? formatter : 'pytorch_mixed_precision_cpu';
+        const currentTexts = selectedCells.map(cell => cell.model.value.text);
+        console.log("current texts:",currentTexts)
+        const optimizedTexts = await this.optimizeCode(
+          currentTexts,
+          optimize_type,/*formatterToUse*/
+          undefined,/*config[formatterToUse]*/
+          true
+        );
+        for (let i = 0; i < selectedCells.length; ++i) {
+          const cell = selectedCells[i];
+          const currentText = currentTexts[i];
+          const optimizedText = optimizedTexts.code[i];
+          if (cell.model.value.text === currentText) {
+            if (optimizedText.error) {
+              if (!(config.suppressFormatterErrors ?? false)) {
+                await showErrorMessage(
+                  'Optimize Code Error',
+                  optimizedText.error
+                );
               }
             } else {
-              await showErrorMessage(
-                'Jupyterlab Code Formatter Error',
-                `Cell value changed since format request was sent, formatting for cell ${i} skipped.`
-              );
+              cell.model.value.text = optimizedText.code;
             }
+          } else {
+            await showErrorMessage(
+              'Optimize Code Error',
+              `Cell value changed since format request was sent, formatting for cell ${i} skipped.`
+            );
           }
         }
       } catch (error) {
-        await showErrorMessage('Jupyterlab Code Formatter Error', error);
+        await showErrorMessage('Optimize Code Error', error);
       }
       this.working = false;
     }
@@ -239,7 +242,7 @@ class JupyterlabCodeOptimizer {
         .then(data => {
           if (data.code[0].error) {
             void showErrorMessage(
-              'Jupyterlab Code Formatter Error',
+              'Optimize Code Error',
               data.code[0].error
             );
             this.working = false;
@@ -251,7 +254,7 @@ class JupyterlabCodeOptimizer {
         })
         .catch(error => {
           this.working = false;
-          void showErrorMessage('Jupyterlab Code Formatter Error', error);
+          void showErrorMessage('Optimize Code Error', error);
         });
     }
   
