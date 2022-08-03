@@ -1,7 +1,7 @@
 # Neural_Coder
 
 [![Github Actions Status](https://github.com/Ymirsss/jupyterlab_NC/workflows/Build/badge.svg)](https://github.com/Ymirsss/jupyterlab_NC/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Ymirsss/jupyterlab_NC/main?urlpath=lab)
-Neural_Coder
+Neural_Coder_EXT
 
 ## Requirements
 

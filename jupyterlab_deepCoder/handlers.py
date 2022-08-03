@@ -77,17 +77,16 @@ class OptimizeAPIHandler(APIHandler):
                         for line in code_list:
                             f.write(line+"\n")
                 print("write tmp file")
-                # optimized_code
-                        # try:
-                        #     optimized_code.append(
-                        #         {
-                        #             "code": optimizer_instance.optimize_code(
-                        #                 code, notebook, **options
-                        #             )
-                        #         }
-                        #     )
-                        # except Exception as e:
-                        #     optimized_code.append({"error": str(e)})
+                try:
+                    from neural_coder import enable
+                    enable(code=HERE/TMP_FILE, features=[data['formatter']], overwrite=True)
+                except Exception as e:
+                    optimized_code.append({"error": str(e)})
+
+                with open( HERE/TMP_FILE, 'r' ) as f:
+                    content = f.read()
+                optimized_code = content.split("# this is the beginning of a single code snippet\n")[1:]
+                print("optimized code:",optimized_code)
                 self.finish(json.dumps({"code": optimized_code}))
 
 class VersionAPIHandler(APIHandler):

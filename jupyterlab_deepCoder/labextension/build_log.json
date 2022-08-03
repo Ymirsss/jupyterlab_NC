@@ -84,27 +84,27 @@
     },
     "resolve": {
       "alias": {
-        "@phosphor/algorithm$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\algorithm\\dist\\index.js",
-        "@phosphor/application$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\application\\dist\\index.js",
-        "@phosphor/commands$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\commands\\dist\\index.js",
-        "@phosphor/coreutils$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\coreutils\\dist\\index.node.js",
-        "@phosphor/disposable$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\disposable\\dist\\index.js",
-        "@phosphor/domutils$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\domutils\\dist\\index.js",
-        "@phosphor/dragdrop$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\dragdrop\\dist\\index.js",
-        "@phosphor/dragdrop/style": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\widgets\\style",
-        "@phosphor/messaging$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\messaging\\dist\\index.js",
-        "@phosphor/properties$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\properties\\dist\\index.js",
-        "@phosphor/signaling": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\signaling\\dist\\index.js",
-        "@phosphor/widgets/style": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\widgets\\style",
-        "@phosphor/virtualdom$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\virtualdom\\dist\\index.js",
-        "@phosphor/widgets$": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\@lumino\\widgets\\dist\\index.js"
+        "@phosphor/algorithm$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\algorithm\\dist\\index.js",
+        "@phosphor/application$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\application\\dist\\index.js",
+        "@phosphor/commands$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\commands\\dist\\index.js",
+        "@phosphor/coreutils$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\coreutils\\dist\\index.node.js",
+        "@phosphor/disposable$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\disposable\\dist\\index.js",
+        "@phosphor/domutils$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\domutils\\dist\\index.js",
+        "@phosphor/dragdrop$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\dragdrop\\dist\\index.js",
+        "@phosphor/dragdrop/style": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\widgets\\style",
+        "@phosphor/messaging$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\messaging\\dist\\index.js",
+        "@phosphor/properties$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\properties\\dist\\index.js",
+        "@phosphor/signaling": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\signaling\\dist\\index.js",
+        "@phosphor/widgets/style": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\widgets\\style",
+        "@phosphor/virtualdom$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\virtualdom\\dist\\index.js",
+        "@phosphor/widgets$": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\@lumino\\widgets\\dist\\index.js"
       },
       "fallback": {
         "url": false,
         "buffer": false,
         "crypto": false,
-        "path": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\path-browserify\\index.js",
-        "process": "C:\\Users\\longxin\\Neural_Coder\\node_modules\\process\\browser.js"
+        "path": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\path-browserify\\index.js",
+        "process": "C:\\Users\\longxin\\Neural_Coder_EXT\\node_modules\\process\\browser.js"
       }
     },
     "watchOptions": {
@@ -114,7 +114,7 @@
     "output": {
       "hashFunction": "sha256",
       "filename": "[name].[contenthash].js",
-      "path": "C:\\Users\\longxin\\Neural_Coder\\jupyterlab_deepCoder\\labextension\\static",
+      "path": "C:\\Users\\longxin\\Neural_Coder_EXT\\jupyterlab_deepCoder\\labextension\\static",
       "publicPath": "auto"
     },
     "plugins": [
@@ -135,9 +135,9 @@
           },
           "filename": "remoteEntry.[contenthash].js",
           "exposes": {
-            "./index": "C:\\Users\\longxin\\Neural_Coder\\lib\\index.js",
-            "./extension": "C:\\Users\\longxin\\Neural_Coder\\lib\\index.js",
-            "./style": "C:\\Users\\longxin\\Neural_Coder\\style\\index.js"
+            "./index": "C:\\Users\\longxin\\Neural_Coder_EXT\\lib\\index.js",
+            "./extension": "C:\\Users\\longxin\\Neural_Coder_EXT\\lib\\index.js",
+            "./style": "C:\\Users\\longxin\\Neural_Coder_EXT\\style\\index.js"
           },
           "shared": {
             "@jupyterlab/application": {
@@ -627,7 +627,7 @@
             "jupyterlab_deepCoder": {
               "version": "0.1.0",
               "singleton": true,
-              "import": "C:\\Users\\longxin\\Neural_Coder\\lib\\index.js"
+              "import": "C:\\Users\\longxin\\Neural_Coder_EXT\\lib\\index.js"
             }
           }
         }

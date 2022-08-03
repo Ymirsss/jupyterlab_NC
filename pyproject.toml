@@ -3,8 +3,8 @@ requires = ["jupyter_packaging~=0.10,<2", "jupyterlab~=3.1"]
 build-backend = "jupyter_packaging.build_api"
 
 [tool.jupyter-packaging.options]
-skip-if-exists = ["Neural_Coder/labextension/static/style.js"]
-ensured-targets = ["Neural_Coder/labextension/static/style.js", "Neural_Coder/labextension/package.json"]
+skip-if-exists = ["jupyterlab_deepCoder/labextension/static/style.js"]
+ensured-targets = ["jupyterlab_deepCoder/labextension/static/style.js", "jupyterlab_deepCoder/labextension/package.json"]
 
 [tool.jupyter-packaging.builder]
 factory = "jupyter_packaging.npm_builder"
@@ -14,4 +14,4 @@ build_cmd = "build:prod"
 npm = ["jlpm"]
 
 [tool.check-manifest]
-ignore = ["Neural_Coder/labextension/**", "yarn.lock", ".*", "package-lock.json"]
+ignore = ["jupyterlab_deepCoder/labextension/**", "yarn.lock", ".*", "package-lock.json"]
