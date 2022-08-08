@@ -62,33 +62,30 @@ class OptimizeAPIHandler(APIHandler):
         ) is not None or check_plugin_version(self):
             data = json.loads(self.request.body.decode("utf-8"))
             print("Handle optimize request")
-            optimizer_instance = SERVER_OPTIMIZERS.get(data["formatter"])
-            if optimizer_instance is None or not optimizer_instance.importable:
-                self.set_status(404, f"Optimize Type {data['formatter']} not found!")
-                self.finish()
-            else:
-                notebook = data["notebook"]
-                options = data.get("options", {})
-                optimized_code = []
-                with open( HERE/TMP_FILE, 'w+' ) as f:
-                    for code in data["code"]:
-                        f.write("# this is the beginning of a single code snippet\n")
-                        code_list = code.split("\n")
-                        for line in code_list:
-                            f.write(line+"\n")
-                print("write tmp file")
-               # try:
-                print(type(HERE/TMP_FILE))
-                from neural_coder import enable
-                enable(code=str(HERE/TMP_FILE), features=[data['formatter']], overwrite=True)
-                #except Exception as e:
-                #    optimized_code.append({"error": str(e)})
-
-                with open( HERE/TMP_FILE, 'r' ) as f:
-                    content = f.read()
-                optimized_code = content.split("# this is the beginning of a single code snippet\n")[1:]
-                print("optimized code:",optimized_code)
-                self.finish(json.dumps({"code": optimized_code}))
+            # optimizer_instance = SERVER_OPTIMIZERS.get(data["formatter"])
+            # if optimizer_instance is None or not optimizer_instance.importable:
+            #     self.set_status(404, f"Optimize Type {data['formatter']} not found!")
+            #     self.finish()
+            # else:
+            notebook = data["notebook"]
+            options = data.get("options", {})
+            optimized_code = []
+            with open( HERE/TMP_FILE, 'w+' ) as f:
+                for code in data["code"]:
+                    f.write("# this is the beginning of a single code snippet\n")
+                    code_list = code.split("\n")
+                    for line in code_list:
+                        f.write(line+"\n")
+            print("write tmp file")
+            print(type(HERE/TMP_FILE))
+            from neural_coder import enable
+            enable(code=str(HERE/TMP_FILE), features=[data['formatter']], overwrite=True)
+    
+            with open( HERE/TMP_FILE, 'r' ) as f:
+                content = f.read()
+            optimized_code = content.split("# this is the beginning of a single code snippet\n")[1:]
+            print("optimized code:",optimized_code)
+            self.finish(json.dumps({"code": optimized_code}))
 
 class VersionAPIHandler(APIHandler):
     def get(self) -> None:
