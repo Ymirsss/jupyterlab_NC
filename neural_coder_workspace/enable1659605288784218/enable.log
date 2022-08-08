@@ -1,0 +1,6 @@
+2022-08-04 17:28:08 - neural_coder_workspace/enable1659605288784218/ - INFO: - Enabling started ...
+2022-08-04 17:28:08 - neural_coder_workspace/enable1659605288784218/ - INFO: - code: /home2/longxin/Neural_Coder_EXT/tmp.py
+2022-08-04 17:28:08 - neural_coder_workspace/enable1659605288784218/ - INFO: - features: ['pytorch_cuda_to_cpu']
+2022-08-04 17:28:12 - neural_coder_workspace/enable1659605288784218/ - INFO: - Performing code transformation for feature: [pytorch_cuda_to_cpu] ...
+2022-08-04 17:28:13 - neural_coder_workspace/enable1659605288784218/ - INFO: - Code transformation for feature: [pytorch_cuda_to_cpu] finished.
+2022-08-04 17:28:17 - neural_coder_workspace/enable1659605288784218/ - INFO: - The patch is saved to: [/home2/longxin/Neural_Coder_EXT/neural_coder_workspace/enable1659605288784218/neural_coder_patch.diff]

@@ -8,6 +8,7 @@ def _fetchVersion():
     HERE = os.path.abspath(os.path.dirname(__file__))
 
     for d, _, _ in os.walk(HERE):
+        print("walk dir",d)
         try:
             with open(os.path.join(d, "package.json")) as f:
                 return json.load(f)["version"]

@@ -40,7 +40,7 @@ def setup_handlers(web_app: ServerWebApplication) -> None:
 
 def check_plugin_version(handler: APIHandler):
     server_extension_version = pkg_resources.get_distribution(
-        "jupyterlab_code_formatter"
+        "jupyterlab_deepCoder"
     ).version
     lab_extension_version = handler.request.headers.get("Plugin-Version")
     version_matches = server_extension_version == lab_extension_version
@@ -77,11 +77,12 @@ class OptimizeAPIHandler(APIHandler):
                         for line in code_list:
                             f.write(line+"\n")
                 print("write tmp file")
-                try:
-                    from neural_coder import enable
-                    enable(code=HERE/TMP_FILE, features=[data['formatter']], overwrite=True)
-                except Exception as e:
-                    optimized_code.append({"error": str(e)})
+               # try:
+                print(type(HERE/TMP_FILE))
+                from neural_coder import enable
+                enable(code=str(HERE/TMP_FILE), features=[data['formatter']], overwrite=True)
+                #except Exception as e:
+                #    optimized_code.append({"error": str(e)})
 
                 with open( HERE/TMP_FILE, 'r' ) as f:
                     content = f.read()

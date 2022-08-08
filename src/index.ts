@@ -19,6 +19,7 @@ import { IMainMenu } from '@jupyterlab/mainmenu';
 import { DisposableDelegate, IDisposable } from '@lumino/disposable';
 import { LabIcon } from '@jupyterlab/ui-components';
 import { Menu } from '@lumino/widgets';
+//import { Widget } from '@lumino/widgets';
 
 import {
   // JupyterlabFileEditorCodeOptimizer,
@@ -38,6 +39,7 @@ class JupyterLabDeepCoder
   // private editorTracker: IEditorTracker;
   private client: JupyterlabDeepCoderClient;
   private notebookCodeOptimizer: JupyterlabNotebookCodeOptimizer;
+  //private currentwidget: Widget | null';
   // private fileEditorCodeOptimizer: JupyterlabFileEditorCodeOptimizer;
 
   constructor(
@@ -72,6 +74,10 @@ class JupyterLabDeepCoder
     console.log("Finish setupContextMenu");
     this.setupWidgetExtension();
     console.log("Finish setupWidgetExtension");
+    //this.currentwidget = new Widget();
+    //this.loading.addClass('lds-ripple');
+    //this.loading.id = "loading circle"
+    //this.loading.title.label = "loading"
   }
 
   public createNew(
@@ -193,6 +199,7 @@ class JupyterLabDeepCoder
     //   // TODO: Add back isVisible
     //   label: 'Format cell'
     // });
+    //const loading_bar = document.createElement('lds-ripple')
     this.app.commands.addCommand(Constants.OPTIMIZE_ALL_COMMAND, {
       execute: async () => {
         await this.notebookCodeOptimizer.optimizeAllCodeCells(this.config);
@@ -231,7 +238,25 @@ class JupyterLabDeepCoder
     });
     this.app.commands.addCommand(Constants.OPTIMIZE_CToC_COMMAND, {
       execute: async () => {
+          const currentwidget = this.app.shell.currentWidget;
+          if(currentwidget){
+            //currentwidget.node.appendChild(loading_bar);
+            //console.log("loading_bar:", loading_bar)
+           //if (!this.loading.isAttached) {
+          // Attach the widget to the main work area if it's not there
+            //this.app.shell.add(this.loading, 'main');
+          //}
+          // Activate the widget
+          //this.app.shell.activateById(this.loading.id);
+          //console.log("currentwidget:", currentwidget)
+          currentwidget.addClass('lds-ripple');
+          }
+        //this.loading.show();
         await this.notebookCodeOptimizer.optimizeAllCodeCells(this.config,"pytorch_cuda_to_cpu");
+        if(currentwidget){
+          currentwidget.removeClass('lds-ripple');}
+        //console.log("execute document",document)
+        //this.loading.close();
       },
       label: 'CUDA to CPU'
       // TODO: Add back isVisible
@@ -330,6 +355,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
     
     console.log('JupyterLab extension jupyterlab_apod is activated!');
     console.log('ICommandPalette:', palette);
+    console.log('document...',document)
   }
 };
 

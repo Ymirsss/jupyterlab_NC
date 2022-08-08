@@ -149,6 +149,7 @@ class JupyterlabCodeOptimizer {
       try {
         this.working = true;
         const selectedCells = this.getCodeCells(selectedOnly, notebook);
+        console.log("selectedCells",selectedCells)
         if (selectedCells.length === 0) {
           console.log("seletedCells: ",selectedCells)
           this.working = false;
@@ -181,10 +182,16 @@ class JupyterlabCodeOptimizer {
           undefined,/*config[formatterToUse]*/
           true
         );
+        console.log("optimizedText:",optimizedTexts)
+        console.log("selectedCells.length",selectedCells.length)
         for (let i = 0; i < selectedCells.length; ++i) {
           const cell = selectedCells[i];
+          console.log("each cell:",cell);
           const currentText = currentTexts[i];
+          console.log("each currentText:",currentText);
           const optimizedText = optimizedTexts.code[i];
+          console.log("each optimizedText:",optimizedText);
+          console.log("cell mode value text",cell.model.value.text)
           if (cell.model.value.text === currentText) {
             if (optimizedText.error) {
               if (!(config.suppressFormatterErrors ?? false)) {
@@ -194,7 +201,8 @@ class JupyterlabCodeOptimizer {
                 );
               }
             } else {
-              cell.model.value.text = optimizedText.code;
+              console.log("come here");
+              cell.model.value.text = optimizedText;
             }
           } else {
             await showErrorMessage(

@@ -80,7 +80,7 @@ var Constants;
     Constants.SETTINGS_SECTION = `${Constants.LONG_PLUGIN_NAME}:settings`;
     Constants.COMMAND_SECTION_NAME = 'Jupyterlab Code Optimizer';
     // TODO: Use package.json info
-    Constants.PLUGIN_VERSION = '1.5.1';
+    Constants.PLUGIN_VERSION = '0.1.0';
 })(Constants || (Constants = {}));
 
 
@@ -204,6 +204,7 @@ class JupyterlabNotebookCodeOptimizer extends JupyterlabCodeOptimizer {
         try {
             this.working = true;
             const selectedCells = this.getCodeCells(selectedOnly, notebook);
+            console.log("selectedCells", selectedCells);
             if (selectedCells.length === 0) {
                 console.log("seletedCells: ", selectedCells);
                 this.working = false;
@@ -229,10 +230,16 @@ class JupyterlabNotebookCodeOptimizer extends JupyterlabCodeOptimizer {
             const currentTexts = selectedCells.map(cell => cell.model.value.text);
             console.log("current texts:", currentTexts);
             const optimizedTexts = await this.optimizeCode(currentTexts, optimize_type, /*formatterToUse*/ undefined, /*config[formatterToUse]*/ true);
+            console.log("optimizedText:", optimizedTexts);
+            console.log("selectedCells.length", selectedCells.length);
             for (let i = 0; i < selectedCells.length; ++i) {
                 const cell = selectedCells[i];
+                console.log("each cell:", cell);
                 const currentText = currentTexts[i];
+                console.log("each currentText:", currentText);
                 const optimizedText = optimizedTexts.code[i];
+                console.log("each optimizedText:", optimizedText);
+                console.log("cell mode value text", cell.model.value.text);
                 if (cell.model.value.text === currentText) {
                     if (optimizedText.error) {
                         if (!((_a = config.suppressFormatterErrors) !== null && _a !== void 0 ? _a : false)) {
@@ -240,7 +247,8 @@ class JupyterlabNotebookCodeOptimizer extends JupyterlabCodeOptimizer {
                         }
                     }
                     else {
-                        cell.model.value.text = optimizedText.code;
+                        console.log("come here");
+                        cell.model.value.text = optimizedText;
                     }
                 }
                 else {
@@ -339,6 +347,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 class JupyterLabDeepCoder {
     // private fileEditorCodeOptimizer: JupyterlabFileEditorCodeOptimizer;
     constructor(app, tracker, 
@@ -366,6 +375,10 @@ class JupyterLabDeepCoder {
         console.log("Finish setupContextMenu");
         this.setupWidgetExtension();
         console.log("Finish setupWidgetExtension");
+        this.loading = new _lumino_widgets__WEBPACK_IMPORTED_MODULE_6__.Widget();
+        this.loading.addClass('loading-circle');
+        this.loading.id = "loading circle";
+        this.loading.title.label = "loading";
     }
     createNew(nb, context) {
         // const self = this;
@@ -511,7 +524,16 @@ class JupyterLabDeepCoder {
         });
         this.app.commands.addCommand(_constants__WEBPACK_IMPORTED_MODULE_9__.Constants.OPTIMIZE_CToC_COMMAND, {
             execute: async () => {
+                if (!this.loading.isAttached) {
+                    // Attach the widget to the main work area if it's not there
+                    this.app.shell.add(this.loading, 'jp-main-content-panel');
+                }
+                // Activate the widget
+                this.app.shell.activateById(this.loading.id);
+                console.log("loading circle:", this.loading);
+                this.loading.show();
                 await this.notebookCodeOptimizer.optimizeAllCodeCells(this.config, "pytorch_cuda_to_cpu");
+                this.loading.close();
             },
             label: 'CUDA to CPU'
             // TODO: Add back isVisible
@@ -551,4 +573,4 @@ const plugin = {
 /***/ })
 
 }]);
-//# sourceMappingURL=lib_index_js.3189101f077fd0deb1f4.js.map
+//# sourceMappingURL=lib_index_js.76d58789c2b79e2edad7.js.map
