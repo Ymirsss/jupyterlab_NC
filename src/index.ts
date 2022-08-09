@@ -6,7 +6,7 @@ import {
 import {
   INotebookModel,
   INotebookTracker,
-  NotebookPanel 
+  NotebookPanel, 
 } from '@jupyterlab/notebook';
 import {
   ICommandPalette,
@@ -14,9 +14,9 @@ import {
 } from '@jupyterlab/apputils';
 import { ISettingRegistry } from '@jupyterlab/settingregistry';
 import { IMainMenu } from '@jupyterlab/mainmenu';
-import { DisposableDelegate, IDisposable } from '@lumino/disposable';
+// import { DisposableDelegate, IDisposable } from '@lumino/disposable';
 import { LabIcon } from '@jupyterlab/ui-components';
-import { Menu } from '@lumino/widgets';
+import { Menu} from '@lumino/widgets';
 
 import {
   JupyterlabNotebookCodeOptimizer
@@ -32,15 +32,18 @@ class JupyterLabDeepCoder
   private config: any;
   private client: JupyterlabDeepCoderClient;
   private notebookCodeOptimizer: JupyterlabNotebookCodeOptimizer;
+  private panel: NotebookPanel;
 
   constructor(
     app: JupyterFrontEnd,
     tracker: INotebookTracker,
     menu: IMainMenu,
+    panel: NotebookPanel
   ) {
     this.app = app;
     this.tracker = tracker;
     this.menu = menu;
+    this.panel = panel;
     this.client = new JupyterlabDeepCoderClient();
     this.notebookCodeOptimizer = new JupyterlabNotebookCodeOptimizer(
       this.client,
@@ -59,26 +62,30 @@ class JupyterLabDeepCoder
   public createNew(
     nb: NotebookPanel,
     context: DocumentRegistry.IContext<INotebookModel>
-  ): IDisposable {
-    const button = new ToolbarButton({
-      tooltip: 'Optimize',
-      icon: new LabIcon({
-        name: Constants.OPTIMIZE_ALL_COMMAND,
-        svgstr: Constants.ICON_FORMAT_ALL_SVG
-      }),
-      onClick: async () => {
+  ) {
+    this.panel = nb;
+    // const button = new ToolbarButton({
+    //   tooltip: 'optimizing...',
+    //   icon: new LabIcon({
+    //     name: Constants.OPTIMIZE_ALL_COMMAND,
+    //     svgstr: Constants.ICON_FORMAT_ALL_SVG
+    //   }),
+    //   onClick: async () => {
+    //     console.log("It's an empty button.")
+    //   }
+    // });
+    // let loading_icon = document.createElement('lds-ripple')
+    // const loading = new Widget();
+    // loading.addClass('lds-ripple');
+    // nb.toolbar.insertItem(10,"optimizing",button)
+    // nb.toolbar.addItem("loading",loading)
+    // console.log("???")
+    // nb.toolbar.insertItem(10, 'clearOutputs', button);
 
-        console.log("It's an empty button.")
-      }
-    });
-    nb.toolbar.addItem("Optimize Code",button)
-    
-    nb.toolbar.insertItem(10, 'clearOutputs', button);
 
-
-    return new DisposableDelegate(() => {
-      button.dispose();
-    });
+    // return new DisposableDelegate(() => {
+    //   button.dispose();
+    // });
   }
 
   private setupWidgetExtension() {
@@ -137,71 +144,71 @@ class JupyterLabDeepCoder
 
 
   private setupAllCommands() {
-
+    const button = new ToolbarButton({
+      tooltip: 'optimizing',
+      icon: new LabIcon({
+        name: Constants.OPTIMIZE_ALL_COMMAND,
+        svgstr: Constants.ICON_FORMAT_ALL_SVG
+      }),
+      onClick: async () => {
+        console.log("It's an empty button.")
+      }
+    });
     this.app.commands.addCommand(Constants.OPTIMIZE_ALL_COMMAND, {
       execute: async () => {
         await this.notebookCodeOptimizer.optimizeAllCodeCells(this.config);
       },
       iconClass: Constants.ICON_FORMAT_ALL,
-      iconLabel: 'Optimize code'
+      iconLabel: 'hahaha'
     });
     this.app.commands.addCommand(Constants.OPTIMIZE_AMP_COMMAND, {
       execute: async () => {
-        const currentwidget = this.app.shell.currentWidget;
-        if(currentwidget){
-        currentwidget.addClass('lds-ripple');
-        }
+        // const currentwidget = this.app.shell.currentWidget;
+        // if(currentwidget){
+        // currentwidget.addClass('lds-ripple');
+        
+        // }
+      this.panel.toolbar.insertItem(10,"optimize",button)
       await this.notebookCodeOptimizer.optimizeAllCodeCells(this.config,"pytorch_mixed_precision_cpu");
-      if(currentwidget){
-        currentwidget.removeClass('lds-ripple');}
+      // if(currentwidget){
+      //   currentwidget.removeClass('lds-ripple');}
+      button.hide();
+
     },
       label: 'Automatic Mixed Precison'
     });
     this.app.commands.addCommand(Constants.OPTIMIZE_INC_DQ_COMMAND, {
       execute: async () => {
-        const currentwidget = this.app.shell.currentWidget;
-        if(currentwidget){
-        currentwidget.addClass('lds-ripple');
-        }
+      if(button.isHidden){button.show();}
+      else{this.panel.toolbar.insertItem(10,"optimize",button);}
       await this.notebookCodeOptimizer.optimizeAllCodeCells(this.config,"pytorch_inc_dynamic_quant");
-      if(currentwidget){
-        currentwidget.removeClass('lds-ripple');}
+      button.hide();
     },
       label: 'INC Dynamic Quantization (INT8) '
     });
     this.app.commands.addCommand(Constants.OPTIMIZE_JIT_COMMAND, {
       execute: async () => {
-        const currentwidget = this.app.shell.currentWidget;
-        if(currentwidget){
-        currentwidget.addClass('lds-ripple');
-        }
+        if(button.isHidden){button.show();}
+        else{this.panel.toolbar.insertItem(10,"optimize",button);}
       await this.notebookCodeOptimizer.optimizeAllCodeCells(this.config,"pytorch_jit_script");
-      if(currentwidget){
-        currentwidget.removeClass('lds-ripple');}
+      button.hide();
     },
       label: 'JIT'
     });
     this.app.commands.addCommand(Constants.OPTIMIZE_CL_COMMAND, {
       execute: async () => {
-        const currentwidget = this.app.shell.currentWidget;
-        if(currentwidget){
-        currentwidget.addClass('lds-ripple');
-        }
+        if(button.isHidden){button.show();}
+        else{this.panel.toolbar.insertItem(10,"optimize",button);}
       await this.notebookCodeOptimizer.optimizeAllCodeCells(this.config,"pytorch_channels_last");
-      if(currentwidget){
-        currentwidget.removeClass('lds-ripple');}
+      button.hide();
     },
       label: 'Channels Last (memory fomat)'
     });
     this.app.commands.addCommand(Constants.OPTIMIZE_CToC_COMMAND, {
       execute: async () => {
-          const currentwidget = this.app.shell.currentWidget;
-          if(currentwidget){
-          currentwidget.addClass('lds-ripple');
-          }
-        await this.notebookCodeOptimizer.optimizeAllCodeCells(this.config,"pytorch_cuda_to_cpu");
-        if(currentwidget){
-          currentwidget.removeClass('lds-ripple');}
+        if(button.isHidden){button.show();}
+        else{this.panel.toolbar.insertItem(10,"optimize",button);}        await this.notebookCodeOptimizer.optimizeAllCodeCells(this.config,"pytorch_cuda_to_cpu");
+        button.hide();
       },
       label: 'CUDA to CPU'
     });
@@ -225,11 +232,13 @@ const plugin: JupyterFrontEndPlugin<void> = {
     palette: ICommandPalette,
     tracker: INotebookTracker,
     menu: IMainMenu,
+    panel: NotebookPanel
   ) => {
     new JupyterLabDeepCoder(
       app,
       tracker,
       menu,
+      panel
     );
     
     console.log('JupyterLab extension jupyterlab_apod is activated!');

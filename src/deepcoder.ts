@@ -149,7 +149,6 @@ class JupyterlabCodeOptimizer {
   
     applicable(formatter: string, currentWidget: Widget) {
       const currentNotebookWidget = this.notebookTracker.currentWidget;
-      // TODO: Handle showing just the correct formatter for the language later
       return currentNotebookWidget && currentWidget === currentNotebookWidget;
     }
   }
