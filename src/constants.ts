@@ -32,5 +32,6 @@ export namespace Constants {
     export const COMMAND_SECTION_NAME = 'Jupyterlab Code Optimizer';
     // TODO: Use package.json info
     export const PLUGIN_VERSION = '0.1.0';
+    export const SVG = '<svg xmlns="http://www.w3.org/2000/svg" width="16" viewBox="0 0 18 18" data-icon="ui-components:caret-down-empty"><g xmlns="http://www.w3.org/2000/svg" class="jp-icon3" fill="#616161" shape-rendering="geometricPrecision"><path d="M5.2,5.9L9,9.7l3.8-3.8l1.2,1.2l-4.9,5l-4.9-5L5.2,5.9z"></path></g></svg>'
   }
   

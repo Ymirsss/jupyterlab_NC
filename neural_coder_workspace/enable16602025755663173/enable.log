@@ -1,0 +1,6 @@
+2022-08-11 15:22:55 - neural_coder_workspace/enable16602025755663173/ - INFO: - Enabling started ...
+2022-08-11 15:22:55 - neural_coder_workspace/enable16602025755663173/ - INFO: - code: /home2/longxin/Neural_Coder_EXT/tmp.py
+2022-08-11 15:22:55 - neural_coder_workspace/enable16602025755663173/ - INFO: - features: ['pytorch_mixed_precision_cpu']
+2022-08-11 15:23:14 - neural_coder_workspace/enable16602025755663173/ - INFO: - Performing code transformation for feature: [pytorch_mixed_precision_cpu] ...
+2022-08-11 15:23:16 - neural_coder_workspace/enable16602025755663173/ - INFO: - Code transformation for feature: [pytorch_mixed_precision_cpu] finished.
+2022-08-11 15:23:20 - neural_coder_workspace/enable16602025755663173/ - INFO: - The patch is saved to: [/home2/longxin/Neural_Coder_EXT/neural_coder_workspace/enable16602025755663173/neural_coder_patch.diff]

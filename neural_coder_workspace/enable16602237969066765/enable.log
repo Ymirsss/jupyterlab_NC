@@ -1,0 +1,6 @@
+2022-08-11 21:16:36 - neural_coder_workspace/enable16602237969066765/ - INFO: - Enabling started ...
+2022-08-11 21:16:36 - neural_coder_workspace/enable16602237969066765/ - INFO: - code: /home2/longxin/Neural_Coder_EXT/tmp.py
+2022-08-11 21:16:36 - neural_coder_workspace/enable16602237969066765/ - INFO: - features: ['pytorch_jit_script']
+2022-08-11 21:16:39 - neural_coder_workspace/enable16602237969066765/ - INFO: - Performing code transformation for feature: [pytorch_jit_script] ...
+2022-08-11 21:16:41 - neural_coder_workspace/enable16602237969066765/ - INFO: - Code transformation for feature: [pytorch_jit_script] finished.
+2022-08-11 21:16:45 - neural_coder_workspace/enable16602237969066765/ - INFO: - The patch is saved to: [/home2/longxin/Neural_Coder_EXT/neural_coder_workspace/enable16602237969066765/neural_coder_patch.diff]
