@@ -20,6 +20,7 @@ class JupyterlabCodeOptimizer {
       options: any,
       notebook: boolean
     ) {
+      
       return this.client
         .request(
           'optimize',
@@ -56,18 +57,8 @@ class JupyterlabCodeOptimizer {
       formatter?: string,
       notebook?: Notebook
     ) {
-      console.log("optimize feature:",formatter)
       return this.optimizeCells(false, config, formatter, notebook);
     }
-    // /*Todo: Automatic Mixed Precison*/
-    // public async optimizeAllCodeCells_withAMP(
-    //   config: any,
-    //   formatter?: string,
-    //   notebook?: Notebook
-    // ) {
-    //   return this.optimizeCells(false, config, formatter, notebook);
-    // }
-
 
     private getCodeCells(selectedOnly = true, notebook?: Notebook): CodeCell[] {
       if (!this.notebookTracker.currentWidget) {
@@ -89,39 +80,28 @@ class JupyterlabCodeOptimizer {
       formatter?: string,
       notebook?: Notebook
     ) {
-      console.log("If it works: ", this.working)
       if (this.working) {
         return;
       }
       try {
         this.working = true;
         const selectedCells = this.getCodeCells(selectedOnly, notebook);
-        console.log("selectedCells",selectedCells)
         if (selectedCells.length === 0) {
-          console.log("seletedCells: ",selectedCells)
           this.working = false;
           return;
         }
-        console.log("I am here")
         const optimize_type = formatter !== undefined ? formatter : 'pytorch_mixed_precision_cpu';
         const currentTexts = selectedCells.map(cell => cell.model.value.text);
-        console.log("current texts:",currentTexts)
         const optimizedTexts = await this.optimizeCode(
           currentTexts,
-          optimize_type,/*formatterToUse*/
-          undefined,/*config[formatterToUse]*/
+          optimize_type,
+          undefined,
           true
         );
-        console.log("optimizedText:",optimizedTexts)
-        console.log("selectedCells.length",selectedCells.length)
         for (let i = 0; i < selectedCells.length; ++i) {
           const cell = selectedCells[i];
-          console.log("each cell:",cell);
           const currentText = currentTexts[i];
-          console.log("each currentText:",currentText);
           const optimizedText = optimizedTexts.code[i];
-          console.log("each optimizedText:",optimizedText);
-          console.log("cell mode value text",cell.model.value.text)
           if (cell.model.value.text === currentText) {
             if (optimizedText.error) {
               if (!(config.suppressFormatterErrors ?? false)) {
@@ -131,7 +111,6 @@ class JupyterlabCodeOptimizer {
                 );
               }
             } else {
-              console.log("come here");
               cell.model.value.text = optimizedText;
             }
           } else {
@@ -146,13 +125,11 @@ class JupyterlabCodeOptimizer {
       }
       this.working = false;
     }
-  
     applicable(formatter: string, currentWidget: Widget) {
       const currentNotebookWidget = this.notebookTracker.currentWidget;
       return currentNotebookWidget && currentWidget === currentNotebookWidget;
     }
   }
-
   export class JupyterlabFileEditorCodeOptimizer extends JupyterlabCodeOptimizer {
     protected editorTracker: IEditorTracker;
   

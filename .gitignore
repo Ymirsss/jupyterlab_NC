@@ -8,6 +8,11 @@ node_modules/
 *.tsbuildinfo
 Neural_Coder/labextension
 jupyterlab_deepCoder/labextension
+jupyterlab_deepCoder/labextension_old
+jupyterlab_deepCoder/labextension_oldold
+*.ipynb
+tmp.py
+yarn-error.log
 
 # Integration tests
 ui-tests/test-results/

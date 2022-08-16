@@ -33,10 +33,6 @@ class JupyterlabDeepCoderClient {
       });
     }
   
-    public getAvailableFormatters() {
-      return this.request('formatters', 'GET', null);
-    }
-  
   }
   
   export default JupyterlabDeepCoderClient;
