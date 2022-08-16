@@ -11,6 +11,7 @@ import {
 import {
   ICommandPalette,
   ToolbarButton,
+  // ToolbarButtonComponent
 } from '@jupyterlab/apputils';
 import { ISettingRegistry } from '@jupyterlab/settingregistry';
 import { IMainMenu } from '@jupyterlab/mainmenu';
@@ -74,33 +75,46 @@ class JupyterLabDeepCoder
    
     selector.setAttribute("class","aselector")
     selector.id = "NeuralCoder"
-    const option0 = document.createElement("option");
-    option0.value = "Automatic Mixed Precison";
-    option0.innerText = "-";
+    // const option0 = document.createElement("option");
+    // option0.value = "Automatic Mixed Precison";
+    // option0.innerText = "-";
+    // const option1 = document.createElement("option");
+    // option1.value = "pytorch_mixed_precision_cpu";
+    // option1.innerText = "Automatic Mixed Precison";
+    // option1.selected=true;
+    // const option2 = document.createElement("option");
+    // option2.value = "pytorch_inc_dynamic_quant";
+    // option2.innerText = "INC Dynamic Quantization (INT8)";
+    // const option3 = document.createElement("option");
+    // option3.value = "pytorch_jit_script";
+    // option3.innerText = "JIT";
+    // const option4 = document.createElement("option");
+    // option4.value = "pytorch_channels_last";
+    // option4.innerText = "Channels Last (memory fomat)";
+    // const option5 = document.createElement("option");
+    // option5.value = "pytorch_cuda_to_cpu";
+    // option5.innerText = "CUDA to CPU";
     const option1 = document.createElement("option");
-    option1.value = "pytorch_mixed_precision_cpu";
-    option1.innerText = "Automatic Mixed Precison";
+    option1.value = "pytorch_inc_static_quant_fx";
+    option1.innerText = "Intel INT8 (Static)";
     option1.selected=true;
     const option2 = document.createElement("option");
     option2.value = "pytorch_inc_dynamic_quant";
-    option2.innerText = "INC Dynamic Quantization (INT8)";
+    option2.innerText = "Intel INT8 (Dynamic)";
     const option3 = document.createElement("option");
-    option3.value = "pytorch_jit_script";
-    option3.innerText = "JIT";
+    option3.value = "pytorch_inc_bf16";
+    option3.innerText = "Intel BF16";
     const option4 = document.createElement("option");
-    option4.value = "pytorch_channels_last";
-    option4.innerText = "Channels Last (memory fomat)";
-    const option5 = document.createElement("option");
-    option5.value = "pytorch_cuda_to_cpu";
-    option5.innerText = "CUDA to CPU";
-
+    option4.value = "-";
+    option4.innerText = "Auto";
+    console.log("?????????")
     
-    selector.options.add(option0)
+    // selector.options.add(option0)
     selector.options.add(option1)
     selector.options.add(option2)
     selector.options.add(option3)
     selector.options.add(option4)
-    selector.options.add(option5)
+    // selector.options.add(option5)
 
     div.appendChild(selector)
     div.appendChild(span)
@@ -121,17 +135,68 @@ class JupyterLabDeepCoder
         console.log("It's an empty button.")
       }
     });
+  
     let panel = this.panel;
     let notebookCodeOptimizer = this.notebookCodeOptimizer;
     let config = this.config;
-    selector.addEventListener('change',(event) =>async () => {
-      console.log("change!!!!!!!!!!!!!!!!!")
-      console.log(selector.options[selector.selectedIndex].value)
-      if(button.isHidden){button.show();}
-      else{panel.toolbar.insertItem(10,"optimize",button);}
-      await notebookCodeOptimizer.optimizeAllCodeCells(config,selector.options[selector.selectedIndex].value);
-      button.hide();
-    })
+    const svg = document.createElement("svg")
+    svg.innerHTML = Constants.ICON_FORMAT_ALL_SVG
+    const run_svg = document.createElement("svg")
+    run_svg.innerHTML = Constants.ICON_RUN
+
+    const run_button = new ToolbarButton({
+      tooltip: 'NeuralCoder',
+      icon: new LabIcon({
+        name: "run",
+        svgstr:Constants.ICON_RUN
+      }),
+      onClick: async function (){
+        console.log("runbuttoonchange!!!!!!!!!!!!!!!!!")
+        console.log(selector.options[selector.selectedIndex].value)
+        console.log(panel)
+        // if(button.isHidden){button.show();}
+        // else{panel.toolbar.insertItem(10,"optimize",button);}
+        // panel.toolbar.node.remove(run_button.node)
+        // panel.toolbar.insertItem(12,"optimize",button);
+        
+        run_button.node.firstChild?.firstChild?.firstChild?.firstChild?.replaceWith(svg)  
+        await notebookCodeOptimizer.optimizeAllCodeCells(config,selector.options[selector.selectedIndex].value);
+        run_button.node.firstChild?.firstChild?.firstChild?.firstChild?.replaceWith(run_svg)
+        // panel.toolbar.node.removeChild(button.node)
+        // panel.toolbar.insertItem(12,"run",run_button); 
+        console.log("remove optimize finish") 
+        // button.hide();
+        // run_button.removeClass("loading")
+      }
+    });
+    
+    // run_button.node.id = "run_btn"
+    // run_button.addClass("loading")
+
+    // run_button.addClass("playbutton")
+    // const img = document.createElement("img")
+    // img.src = '/home2/longxin/Neural_Coder_EXT/style/icons8-circled-play.gif'
+    // img.onclick = async function(){ 
+    //     console.log("onchange!!!!!!!!!!!!!!!!!")
+    //     console.log(selector.options[selector.selectedIndex].value)
+    //     if(button.isHidden){button.show();}
+    //     else{panel.toolbar.insertItem(10,"optimize",button);}
+    //     await notebookCodeOptimizer.optimizeAllCodeCells(config,selector.options[selector.selectedIndex].value);
+    //     button.hide();
+    //   }
+    // const run = new Widget();
+    // run.node.appendChild(img); 
+    // let panel = this.panel;
+    // let notebookCodeOptimizer = this.notebookCodeOptimizer;
+    // let config = this.config;
+    // selector.addEventListener('change',(event) =>async () => {
+    //   console.log("change!!!!!!!!!!!!!!!!!")
+    //   console.log(selector.options[selector.selectedIndex].value)
+    //   if(button.isHidden){button.show();}
+    //   else{panel.toolbar.insertItem(10,"optimize",button);}
+    //   await notebookCodeOptimizer.optimizeAllCodeCells(config,selector.options[selector.selectedIndex].value);
+    //   button.hide();
+    // })
     // selector.addEventListener('click',(event) =>async () => {
     //   console.log("click!!!!!!!!!!!!!!!!!")
     //   console.log(selector.options[selector.selectedIndex].value)
@@ -140,15 +205,15 @@ class JupyterLabDeepCoder
     //   await notebookCodeOptimizer.optimizeAllCodeCells(config,selector.options[selector.selectedIndex].value);
     //   button.hide();
     // })
-    selector.onchange = async function(){ 
-      console.log("onchange!!!!!!!!!!!!!!!!!")
-      console.log(selector.options[selector.selectedIndex].value)
-      if(button.isHidden){button.show();}
-      else{panel.toolbar.insertItem(10,"optimize",button);}
-      await notebookCodeOptimizer.optimizeAllCodeCells(config,selector.options[selector.selectedIndex].value);
-      button.hide();
+    // selector.onchange = async function(){ 
+    //   console.log("onchange!!!!!!!!!!!!!!!!!")
+    //   console.log(selector.options[selector.selectedIndex].value)
+    //   if(button.isHidden){button.show();}
+    //   else{panel.toolbar.insertItem(10,"optimize",button);}
+    //   await notebookCodeOptimizer.optimizeAllCodeCells(config,selector.options[selector.selectedIndex].value);
+    //   button.hide();
       
-    }
+    // }
     // option2.onclick = function(){ 
     //   async () => {
     //     console.log("option2!!!!!!!!!!!!!!!!!")
@@ -192,9 +257,28 @@ class JupyterLabDeepCoder
     // const loading = new Widget();
     // loading.addClass('lds-ripple');
     // nb.toolbar.insertItem(10,"optimizing",button)
-    nb.toolbar.insertItem(11,"nc",logo_widget)
+    // logo_widget.addClass("loading")
+    nb.toolbar.insertItem(11,"nc",run_button)
     selector_widget.addClass("aselector")
-    nb.toolbar.insertItem(12,"loading",selector_widget)
+    nb.toolbar.insertItem(12,"selector",selector_widget)
+    // nb.toolbar.insertAfter("selector","logo",logo_widget)
+    // nb.toolbar.insertItem(10,"note1",logo_widget)
+    // nb.toolbar.addItem("note",logo_widget)
+    // nb.toolbar.addItem("loading",selector_widget)
+    // nb.toolbar.addItem("run",run_button)
+
+    // nb.toolbar.insertItem(14,"run",logo_widget)
+   
+    // nb.toolbar.addItem("run",logo_widget)
+    // nb.toolbar.insertAfter("nc","note",logo_widget)
+    console.log("run button node",button.node.childNodes)
+    console.log("button node attribute",button.node.ATTRIBUTE_NODE)
+    console.log("button ",button)
+    console.log("toolbar's chiled",nb.toolbar.children)
+    console.log("toolbar's nodes chaild",nb.toolbar.node.childNodes)
+
+
+    
     console.log("???")
     // nb.toolbar.insertItem(10, 'clearOutputs', button);
 

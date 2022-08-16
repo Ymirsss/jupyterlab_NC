@@ -6,6 +6,7 @@ from jupyter_server.serverapp import ServerWebApplication
 from jupyter_server.utils import url_path_join
 from pathlib import Path
 
+
 from .optimize import SERVER_OPTIMIZERS
 
 HERE = Path(__file__).parent.parent.resolve()
@@ -76,15 +77,15 @@ class OptimizeAPIHandler(APIHandler):
                     code_list = code.split("\n")
                     for line in code_list:
                         f.write(line+"\n")
-            print("write tmp file")
-            print(type(HERE/TMP_FILE))
+            # print("write tmp file")
+            # print(type(HERE/TMP_FILE))
             from neural_coder import enable
             enable(code=str(HERE/TMP_FILE), features=[data['formatter']], overwrite=True)
-    
+            
             with open( HERE/TMP_FILE, 'r' ) as f:
                 content = f.read()
             optimized_code = content.split("# this is the beginning of a single code snippet\n")[1:]
-            print("optimized code:",optimized_code)
+            # print("optimized code:",optimized_code)
             self.finish(json.dumps({"code": optimized_code}))
 
 class VersionAPIHandler(APIHandler):
