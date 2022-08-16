@@ -10,7 +10,6 @@ Neural_Coder/labextension
 jupyterlab_deepCoder/labextension
 jupyterlab_deepCoder/labextension_old
 jupyterlab_deepCoder/labextension_oldold
-*.ipynb
 tmp.py
 yarn-error.log
 
