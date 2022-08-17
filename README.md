@@ -1,4 +1,4 @@
-# Neural_Coder
+# Jupyterlab_NeuralCoder
 
 [![Github Actions Status](https://github.com/Ymirsss/jupyterlab_NC/workflows/Build/badge.svg)](https://github.com/Ymirsss/jupyterlab_NC/actions/workflows/build.yml)[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/Ymirsss/jupyterlab_NC/main?urlpath=lab)
 Neural_Coder_EXT
@@ -8,11 +8,29 @@ Neural_Coder_EXT
 - JupyterLab >= 3.0
 
 ## Install
+Before install, you should install the NeuralCoder, please refer to https://github.com/intel-sandbox/neural-coder/blob/master/neural_coder/README.md
 
-To install the extension, execute:
+To install the python source code, execute:
 
 ```bash
-pip install Neural_Coder
+pip install -e.
+```
+or
+```bash
+python setup.py install
+```
+To enables the package to bacome a lab extension
+```bash
+jupyter labextension enable --py jupyterlab_deepCoder
+```
+Check if the package is added into the extension list:
+```bash
+jupyter labextension list
+jupyter serverextension list
+```
+build extension Typescript source:
+```bash
+jlpm run build
 ```
 
 ## Uninstall
@@ -20,9 +38,18 @@ pip install Neural_Coder
 To remove the extension, execute:
 
 ```bash
-pip uninstall Neural_Coder
+pip uninstall jupyterlab_deepCoder
 ```
+## Access jupyter lab remotely using SSH
 
+Launch the jupyter lab service on the remote server:
+```bash
+jupyter lab --no-browser --port=8889
+```
+Start SSH in a local terminal:
+```bash
+ssh -N -f -L localhost:8888:localhost:8889 username@serverIP
+```
 ## Contributing
 
 ### Development install
