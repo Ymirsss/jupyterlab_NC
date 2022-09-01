@@ -5,11 +5,13 @@ import { Constants } from './constants';
 class JupyterlabDeepCoderClient {
     public request(path: string, method: string, body: any): Promise<any> {
       const settings = ServerConnection.makeSettings();
+      console.log("RRRRRRRRRRRRR path",path)
       const fullUrl = URLExt.join(
         settings.baseUrl,
         Constants.SHORT_PLUGIN_NAME,
         path
       );
+       console.log("RRRRRRRRRRRRR url",fullUrl)
       return ServerConnection.makeRequest(
         fullUrl,
         {
@@ -22,6 +24,7 @@ class JupyterlabDeepCoderClient {
         settings
       ).then(response => {
         if (response.status !== 200) {
+          console.log("response:::",response.status)
           return response.text().then(() => {
             throw new ServerConnection.ResponseError(
               response,

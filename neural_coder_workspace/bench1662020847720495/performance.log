@@ -1,0 +1,19 @@
+2022-09-01 16:27:55 [WARNING] Force convert framework model to neural_compressor model.
+2022-09-01 16:27:55 [INFO] Pass query framework capability elapsed time: 8.42 ms
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/ao/quantization/qconfig.py:92: UserWarning: QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead
+  warnings.warn("QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead")
+2022-09-01 16:27:56 [INFO] |*******Mixed Precision Statistics*******|
+2022-09-01 16:27:56 [INFO] +--------------+---------+-------+-------+
+2022-09-01 16:27:56 [INFO] |   Op Type    |  Total  |  INT8 |  BF16 |
+2022-09-01 16:27:56 [INFO] +--------------+---------+-------+-------+
+2022-09-01 16:27:56 [INFO] |  Embedding   |    3    |   3   |   0   |
+2022-09-01 16:27:56 [INFO] |    Linear    |    49   |   0   |   49  |
+2022-09-01 16:27:56 [INFO] +--------------+---------+-------+-------+
+2022-09-01 16:27:56 [INFO] Pass quantize model elapsed time: 543.59 ms
+2022-09-01 16:27:56 [INFO] Specified timeout or max trials is reached! Found a converted model which meet accuracy goal. Exit.
+2022-09-01 16:27:56 [INFO] Save deploy yaml to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_16-27-51/deploy.yaml
+2022-09-01 16:27:56 [INFO] Mixed Precision is done. Please invoke model.save() to save optimized model to disk.
+Traceback (most recent call last):
+  File "/home2/longxin/Neural_Coder_EXT/tmp.py", line 54, in <module>
+    texts = open(file, 'r').read().split('\n')
+IsADirectoryError: [Errno 21] Is a directory: '/home2/longxin/Neural_Coder_EXT'

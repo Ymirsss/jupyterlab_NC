@@ -1,0 +1,26 @@
+2022-09-01 10:07:38 [INFO] Generate a fake evaluation function.
+2022-09-01 10:07:38 [INFO] Pass query framework capability elapsed time: 8.94 ms
+2022-09-01 10:07:38 [INFO] Get FP32 model baseline.
+2022-09-01 10:07:38 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_10-07-35/./history.snapshot.
+2022-09-01 10:07:38 [INFO] FP32 baseline is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/ao/quantization/qconfig.py:92: UserWarning: QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead
+  warnings.warn("QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead")
+2022-09-01 10:07:46 [INFO] |******Mixed Precision Statistics*****|
+2022-09-01 10:07:46 [INFO] +----------------+----------+---------+
+2022-09-01 10:07:46 [INFO] |    Op Type     |  Total   |   INT8  |
+2022-09-01 10:07:46 [INFO] +----------------+----------+---------+
+2022-09-01 10:07:46 [INFO] |   Embedding    |    3     |    3    |
+2022-09-01 10:07:46 [INFO] |     Linear     |    49    |    49   |
+2022-09-01 10:07:46 [INFO] +----------------+----------+---------+
+2022-09-01 10:07:46 [INFO] Pass quantize model elapsed time: 7696.13 ms
+2022-09-01 10:07:46 [INFO] Tune 1 result is: [Accuracy (int8|fp32): 1.0000|1.0000, Duration (seconds) (int8|fp32): 0.0000|0.0000], Best tune result is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+2022-09-01 10:07:46 [INFO] |**********************Tune Result Statistics**********************|
+2022-09-01 10:07:46 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 10:07:46 [INFO] |     Info Type      | Baseline | Tune 1 result | Best tune result |
+2022-09-01 10:07:46 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 10:07:46 [INFO] |      Accuracy      | 1.0000   |    1.0000     |     1.0000       |
+2022-09-01 10:07:46 [INFO] | Duration (seconds) | 0.0000   |    0.0000     |     0.0000       |
+2022-09-01 10:07:46 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 10:07:46 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_10-07-35/./history.snapshot.
+2022-09-01 10:07:47 [INFO] Specified timeout or max trials is reached! Found a quantized model which meet accuracy goal. Exit.
+2022-09-01 10:07:47 [INFO] Save deploy yaml to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_10-07-35/deploy.yaml

@@ -11,6 +11,8 @@ import {
 import {
   // ICommandPalette,
   ToolbarButton,
+  showDialog,
+  Dialog
 } from '@jupyterlab/apputils';
 import { ISettingRegistry } from '@jupyterlab/settingregistry';
 import { IMainMenu } from '@jupyterlab/mainmenu';
@@ -28,7 +30,7 @@ class JupyterLabDeepCoder
   private app: JupyterFrontEnd;
   private tracker: INotebookTracker;
 
-  private config: any;
+  private config: string;
   private client: JupyterlabDeepCoderClient;
   private notebookCodeOptimizer: JupyterlabNotebookCodeOptimizer;
   // private panel: NotebookPanel;
@@ -47,6 +49,7 @@ class JupyterLabDeepCoder
       this.tracker
     );
     this.setupWidgetExtension();
+    this.config = ''
   }
 
   public createNew(
@@ -76,7 +79,7 @@ class JupyterLabDeepCoder
     option3.value = "pytorch_inc_bf16";
     option3.innerText = "Intel BF16";
     const option4 = document.createElement("option");
-    option4.value = "-";
+    option4.value = "auto-quant";
     option4.innerText = "Auto";
     selector.options.add(option1)
     selector.options.add(option2)
@@ -90,6 +93,13 @@ class JupyterLabDeepCoder
     // let panel = this.panel;
     let notebookCodeOptimizer = this.notebookCodeOptimizer;
     let config = this.config;
+    
+
+    const dia_input = document.createElement("input")
+    const dia_widget = new Widget();
+    dia_widget.node.appendChild(dia_input)
+    dia_widget.addClass("dialog")
+
     const run_button = new ToolbarButton({
       tooltip: 'NeuralCoder',
       icon: new LabIcon({
@@ -97,7 +107,21 @@ class JupyterLabDeepCoder
         svgstr:Constants.ICON_RUN
       }),
       onClick: async function (){  
-        run_button.node.firstChild?.firstChild?.firstChild?.firstChild?.replaceWith(svg)  
+        run_button.node.firstChild?.firstChild?.firstChild?.firstChild?.replaceWith(svg)
+        console.log("user's selecting feature")
+        console.log(selector.options[selector.selectedIndex].value)
+        if (selector.options[selector.selectedIndex].value === 'auto-quant'){
+            await showDialog({
+              title:'Please input execute parameters:',
+              body: dia_widget,
+              buttons: [Dialog.okButton({ label: 'Confirm' })]
+            }).then(result => {
+               if (result.button.accept) {
+                 console.log("recieved args body, ", dia_input.value)
+                 config = dia_input.value
+                 }
+            })
+          }
         await notebookCodeOptimizer.optimizeAllCodeCells(config,selector.options[selector.selectedIndex].value);
         run_button.node.firstChild?.firstChild?.firstChild?.firstChild?.replaceWith(run_svg)
       }
@@ -137,4 +161,4 @@ const plugin: JupyterFrontEndPlugin<void> = {
   }
 };
 
-export default plugin;
+export default plugin

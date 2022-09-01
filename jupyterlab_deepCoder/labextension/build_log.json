@@ -102,6 +102,7 @@
       "fallback": {
         "url": false,
         "buffer": false,
+        "crypto": false,
         "path": "/home2/longxin/Neural_Coder_EXT/node_modules/path-browserify/index.js",
         "process": "/home2/longxin/Neural_Coder_EXT/node_modules/process/browser.js"
       }
@@ -623,6 +624,14 @@
             },
             "@jupyterlab/git": {},
             "@krassowski/jupyterlab-lsp": {},
+            "assert": {},
+            "child_process": {},
+            "constants": {},
+            "fs-extra": {},
+            "require": {},
+            "stream": {},
+            "systeminformation": {},
+            "vscode-jsonrpc": {},
             "jupyterlab_deepCoder": {
               "version": "0.1.0",
               "singleton": true,

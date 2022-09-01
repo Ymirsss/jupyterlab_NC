@@ -1,0 +1,8 @@
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "/home2/longxin/Neural_Coder_EXT/tmp.py", line 6, in <module>
+    from neural_compressor.experimental import MixedPrecision
+ModuleNotFoundError: No module named 'neural_compressor'

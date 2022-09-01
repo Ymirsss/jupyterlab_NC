@@ -1,0 +1,4 @@
+  File "/home2/longxin/Neural_Coder_EXT/tmp.py", line 56
+    input_list = []
+    ^
+SyntaxError: invalid syntax

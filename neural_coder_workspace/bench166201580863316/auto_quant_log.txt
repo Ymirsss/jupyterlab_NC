@@ -1,0 +1,9 @@
+Auto-Quant Started...
+Code: User code from Jupyter Lab notebook.
+Benchmark Mode: throughput mode.
+Benchmark result (performance) of The Original Model is 2.625 (FPS)
+Benchmark result (performance) of Intel INT8 (static) is 3.343 (FPS)
+Benchmark result (performance) of Intel INT8 (dynamic) is 5.25 (FPS)
+Benchmark result (performance) of Intel BF16 is 5.021 (FPS)
+The best optimization set for your model Intel INT8 (dynamic)You can get up to 2.0X performance boost.
+

@@ -20,6 +20,12 @@ const {
   transform
 } = jlabConfig;
 
+node: {
+	fs: 'empty',
+	net:'empty',
+	tls:'empty',
+}
+
 module.exports = {
   moduleFileExtensions,
   moduleNameMapper,

@@ -1,0 +1,10 @@
+2022-08-19 10:47:04 - neural_coder_workspace/bench16608772247178862/ - INFO: - Benchmarking started ...
+2022-08-19 10:47:04 - neural_coder_workspace/bench16608772247178862/ - INFO: - code: /home2/longxin/Neural_Coder_EXT/tmp.py
+2022-08-19 10:47:04 - neural_coder_workspace/bench16608772247178862/ - INFO: - mode: throughput
+2022-08-19 10:47:05 - neural_coder_workspace/bench16608772247178862/ - INFO: - Start benchmark on the code ...
+2022-08-19 10:47:05 - neural_coder_workspace/bench16608772247178862/ - INFO: - Collected throughput on the code is: [0] (fps)
+2022-08-19 10:47:05 - neural_coder_workspace/bench16608772247178862/ - INFO: - Collected latency on the code is: [0] (mspi)
+2022-08-19 10:47:05 - neural_coder_workspace/bench16608772247178862/ - INFO: - Collected latency_p50 on the code is: [0] (mspi)
+2022-08-19 10:47:05 - neural_coder_workspace/bench16608772247178862/ - INFO: - Collected latency_p90 on the code is: [0] (mspi)
+2022-08-19 10:47:05 - neural_coder_workspace/bench16608772247178862/ - INFO: - Collected latency_p99 on the code is: [0] (mspi)
+2022-08-19 10:47:05 - neural_coder_workspace/bench16608772247178862/ - INFO: - Collected accuracy on the code is: [0]

@@ -62,6 +62,7 @@ setup_args = dict(
     long_description_content_type="text/markdown",
     # packages=setuptools.find_packages(),
     packages=['jupyterlab_deepCoder'],
+    install_requires_list = ['torch', 'torchvison'],
     zip_safe=False,
     include_package_data=True,
     python_requires=">=3.7",

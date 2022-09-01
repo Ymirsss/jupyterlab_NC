@@ -1,0 +1,13 @@
+model:
+  name: resnet50
+  framework: pytorch
+  inputs: []
+  outputs: []
+device: cpu
+evaluation:
+  accuracy:
+    metric:
+      topk: 1
+    dataloader: null
+  performance:
+    dataloader: null

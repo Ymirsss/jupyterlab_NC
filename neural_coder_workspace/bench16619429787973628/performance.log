@@ -1,0 +1,231 @@
+08/31/2022 18:49:58 - WARNING - __main__ - Process rank: -1, device: cpu, n_gpu: 0distributed training: False, 16-bits training: False
+08/31/2022 18:49:58 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=0,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=result/runs/Aug31_18-49-57_mlp-spr-05,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=adamw_hf,
+output_dir=result,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=result,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+08/31/2022 18:50:01 - INFO - datasets.info - Loading Dataset Infos from /home2/longxin/.cache/huggingface/modules/datasets_modules/datasets/glue/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad
+08/31/2022 18:50:01 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+08/31/2022 18:50:01 - INFO - datasets.info - Loading Dataset info from /home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad
+08/31/2022 18:50:01 - WARNING - datasets.builder - Reusing dataset glue (/home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+08/31/2022 18:50:01 - INFO - datasets.info - Loading Dataset info from /home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad
+  0%|          | 0/3 [00:00<?, ?it/s]100%|██████████| 3/3 [00:00<00:00, 200.03it/s]
+[INFO|configuration_utils.py:681] 2022-08-31 18:50:02,507 >> loading configuration file https://huggingface.co/albert-base-v2/resolve/main/config.json from cache at /home2/longxin/.cache/huggingface/transformers/e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|configuration_utils.py:730] 2022-08-31 18:50:02,627 >> Model config AlbertConfig {
+  "_name_or_path": "albert-base-v2",
+  "architectures": [
+    "AlbertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "finetuning_task": "sst2",
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.21.2",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|tokenization_auto.py:404] 2022-08-31 18:50:03,601 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:681] 2022-08-31 18:50:04,571 >> loading configuration file https://huggingface.co/albert-base-v2/resolve/main/config.json from cache at /home2/longxin/.cache/huggingface/transformers/e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|configuration_utils.py:730] 2022-08-31 18:50:04,573 >> Model config AlbertConfig {
+  "_name_or_path": "albert-base-v2",
+  "architectures": [
+    "AlbertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.21.2",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|tokenization_utils_base.py:1803] 2022-08-31 18:50:10,431 >> loading file https://huggingface.co/albert-base-v2/resolve/main/spiece.model from cache at /home2/longxin/.cache/huggingface/transformers/10be6ce6d3508f1fdce98a57a574283b47c055228c1235f8686f039287ff8174.d6110e25022b713452eb83d5bfa8ae64530995a93d8e694fe52e05aa85dd3a7d
+[INFO|tokenization_utils_base.py:1803] 2022-08-31 18:50:10,431 >> loading file https://huggingface.co/albert-base-v2/resolve/main/tokenizer.json from cache at /home2/longxin/.cache/huggingface/transformers/828a43aa4b9d07e2b7d3be7c6bc10a3ae6e16e8d9c3a0c557783639de9eaeb1b.670e237d152dd53ef77575d4f4a6cd34158db03128fe4f63437ce0d5992bac74
+[INFO|tokenization_utils_base.py:1803] 2022-08-31 18:50:10,431 >> loading file https://huggingface.co/albert-base-v2/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1803] 2022-08-31 18:50:10,431 >> loading file https://huggingface.co/albert-base-v2/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1803] 2022-08-31 18:50:10,431 >> loading file https://huggingface.co/albert-base-v2/resolve/main/tokenizer_config.json from cache at None
+[INFO|configuration_utils.py:681] 2022-08-31 18:50:11,402 >> loading configuration file https://huggingface.co/albert-base-v2/resolve/main/config.json from cache at /home2/longxin/.cache/huggingface/transformers/e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|configuration_utils.py:730] 2022-08-31 18:50:11,403 >> Model config AlbertConfig {
+  "_name_or_path": "albert-base-v2",
+  "architectures": [
+    "AlbertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.21.2",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|modeling_utils.py:2041] 2022-08-31 18:50:12,999 >> loading weights file https://huggingface.co/albert-base-v2/resolve/main/pytorch_model.bin from cache at /home2/longxin/.cache/huggingface/transformers/bf1986d976e9a8320cbd3a0597e610bf299d639ce31b7ca581cbf54be3aaa6d3.d6d54047dfe6ae844e3bf6e7a7d0aff71cb598d3df019361e076ba7639b1da9b
+[WARNING|modeling_utils.py:2425] 2022-08-31 18:50:13,199 >> Some weights of the model checkpoint at albert-base-v2 were not used when initializing AlbertForSequenceClassification: ['predictions.dense.bias', 'predictions.bias', 'predictions.decoder.weight', 'predictions.decoder.bias', 'predictions.LayerNorm.weight', 'predictions.dense.weight', 'predictions.LayerNorm.bias']
+- This IS expected if you are initializing AlbertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing AlbertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:2437] 2022-08-31 18:50:13,199 >> Some weights of AlbertForSequenceClassification were not initialized from the model checkpoint at albert-base-v2 and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+08/31/2022 18:50:13 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad/cache-bc2c4fa1eb57ca42.arrow
+08/31/2022 18:50:13 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad/cache-056cfa564bc2fca3.arrow
+08/31/2022 18:50:13 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad/cache-72b2abe0ca6ed4b4.arrow
+Traceback (most recent call last):
+  File "/home2/longxin/Neural_Coder_EXT/tmp.py", line 681, in <module>
+    main()
+  File "/home2/longxin/Neural_Coder_EXT/tmp.py", line 531, in main
+    from neural_compressor.conf.config import QuantConf
+ImportError: cannot import name 'QuantConf' from 'neural_compressor.conf.config' (/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/neural_compressor-1.11-py3.9-linux-x86_64.egg/neural_compressor/conf/config.py)

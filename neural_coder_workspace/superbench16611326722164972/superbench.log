@@ -1,0 +1,8 @@
+2022-08-22 09:44:32 - neural_coder_workspace/superbench16611326722164972/ - INFO: - Auto-Quant started ...
+2022-08-22 09:44:32 - neural_coder_workspace/superbench16611326722164972/ - INFO: - Code: /home2/longxin/Neural_Coder_EXT/tmp.py
+2022-08-22 09:44:32 - neural_coder_workspace/superbench16611326722164972/ - INFO: - Benchmark Mode: throughput mode
+2022-08-22 09:45:00 - neural_coder_workspace/superbench16611326722164972/ - INFO: - Benchmark result (performance) of The Original Model is 0 (FPS)
+2022-08-22 09:45:13 - neural_coder_workspace/superbench16611326722164972/ - INFO: - Benchmark result (performance) of Intel INT8 (Dynamic) is 0 (FPS)
+2022-08-22 09:45:24 - neural_coder_workspace/superbench16611326722164972/ - INFO: - Benchmark result (performance) of Intel INT8 (Static) is 0 (FPS)
+2022-08-22 09:45:33 - neural_coder_workspace/superbench16611326722164972/ - INFO: - Benchmark result (performance) of Intel INT8 (IPEX) is 0 (FPS)
+2022-08-22 09:45:41 - neural_coder_workspace/superbench16611326722164972/ - INFO: - Benchmark result (performance) of Intel BF16 is 0 (FPS)

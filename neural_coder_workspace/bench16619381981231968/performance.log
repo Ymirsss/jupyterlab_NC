@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home2/longxin/Neural_Coder_EXT/tmp.py", line 2, in <module>
+    from transformers import (
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/transformers/__init__.py", line 30, in <module>
+    from . import dependency_versions_check
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/transformers/dependency_versions_check.py", line 17, in <module>
+    from .utils.versions import require_version, require_version_core
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/transformers/utils/__init__.py", line 48, in <module>
+    from .hub import (
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/transformers/utils/hub.py", line 29, in <module>
+    import huggingface_hub
+ModuleNotFoundError: No module named 'huggingface_hub'

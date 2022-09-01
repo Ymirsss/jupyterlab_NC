@@ -1,0 +1,9 @@
+[NeuralCoder INFO] Auto-Quant Started...
+[NeuralCoder INFO] Code: User code from Jupyter Lab notebook.
+[NeuralCoder INFO] Benchmark Mode: Throughput
+Enabling and Benchmarking for The Original Model ......[NeuralCoder INFO] Benchmark Result (Performance) of The Original Model is 2.652 (FPS)
+Enabling and Benchmarking for The Intel INT8 (Static) ......[NeuralCoder INFO] Benchmark Result (Performance) of Intel INT8 (Static) is 3.374 (FPS)
+Enabling and Benchmarking for The Intel INT8 (Dynamic) ......[NeuralCoder INFO] Benchmark Result (Performance) of Intel INT8 (Dynamic) is 5.942 (FPS)
+Enabling and Benchmarking for The Intel BF16 ......[NeuralCoder INFO] Benchmark Result (performance) of Intel BF16 is 5.246 (FPS)
+[NeuralCoder INFO] The Best Intel Optimization: Intel INT8 (dynamic)[NeuralCoder INFO] You can get up to 2.2X performance boost.
+

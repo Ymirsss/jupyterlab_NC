@@ -1,0 +1,36 @@
+=> using pre-trained model 'alexnet'
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+using CPU, this will be slow
+2022-08-31 20:30:53 [INFO] Generate a fake evaluation function.
+2022-08-31 20:30:53 [INFO] Pass query framework capability elapsed time: 0.87 ms
+2022-08-31 20:30:53 [INFO] Get FP32 model baseline.
+2022-08-31 20:30:53 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-08-31_20-30-39/./history.snapshot.
+2022-08-31 20:30:53 [INFO] FP32 baseline is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/ao/quantization/qconfig.py:92: UserWarning: QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead
+  warnings.warn("QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead")
+2022-08-31 20:30:54 [INFO] |*****Mixed Precision Statistics*****|
+2022-08-31 20:30:54 [INFO] +--------------+-----------+---------+
+2022-08-31 20:30:54 [INFO] |   Op Type    |   Total   |   INT8  |
+2022-08-31 20:30:54 [INFO] +--------------+-----------+---------+
+2022-08-31 20:30:54 [INFO] |    Linear    |     3     |    3    |
+2022-08-31 20:30:54 [INFO] +--------------+-----------+---------+
+2022-08-31 20:30:54 [INFO] Pass quantize model elapsed time: 1353.12 ms
+2022-08-31 20:30:54 [INFO] Tune 1 result is: [Accuracy (int8|fp32): 1.0000|1.0000, Duration (seconds) (int8|fp32): 0.0000|0.0000], Best tune result is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+2022-08-31 20:30:54 [INFO] |**********************Tune Result Statistics**********************|
+2022-08-31 20:30:54 [INFO] +--------------------+----------+---------------+------------------+
+2022-08-31 20:30:54 [INFO] |     Info Type      | Baseline | Tune 1 result | Best tune result |
+2022-08-31 20:30:54 [INFO] +--------------------+----------+---------------+------------------+
+2022-08-31 20:30:54 [INFO] |      Accuracy      | 1.0000   |    1.0000     |     1.0000       |
+2022-08-31 20:30:54 [INFO] | Duration (seconds) | 0.0000   |    0.0000     |     0.0000       |
+2022-08-31 20:30:54 [INFO] +--------------------+----------+---------------+------------------+
+2022-08-31 20:30:54 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-08-31_20-30-39/./history.snapshot.
+2022-08-31 20:30:54 [INFO] Specified timeout or max trials is reached! Found a quantized model which meet accuracy goal. Exit.
+2022-08-31 20:30:54 [INFO] Save deploy yaml to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-08-31_20-30-39/deploy.yaml
+Neural_Coder_Bench_IPS:  8.458
+Neural_Coder_Bench_MSPI:  118.238
+Neural_Coder_Bench_P50:  118.13
+Neural_Coder_Bench_P90:  118.594
+Neural_Coder_Bench_P99:  118.594

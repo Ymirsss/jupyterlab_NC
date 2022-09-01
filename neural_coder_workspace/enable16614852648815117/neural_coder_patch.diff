@@ -1,0 +1,22 @@
+--- /home2/longxin/Neural_Coder_EXT/tmp.py	2022-08-26 11:41:04.846500974 +0800
++++ /home2/longxin/Neural_Coder_EXT/tmp_nc_enabled.py	2022-08-26 11:41:11.869183446 +0800
+@@ -2,6 +2,19 @@
+ import torch
+ import torchvision.models as models
+ model = models.resnet50(pretrained=True)
++# [NeuralCoder] pytorch_inc_dynamic_quant for model [Beginning Line]
++if "GraphModule" not in str(type(model)):
++    from neural_compressor.conf.config import QuantConf
++    from neural_compressor.experimental import Quantization, common
++    quant_config = QuantConf()
++    quant_config.usr_cfg.quantization.approach = "post_training_dynamic_quant"
++    quant_config.usr_cfg.model.framework = "pytorch"
++    quantizer = Quantization(quant_config)
++    quantizer.model = common.Model(model)
++    model = quantizer()
++    model = model.model
++    model.eval()
++# [NeuralCoder] pytorch_inc_dynamic_quant for model [Ending Line]
+ model.eval()
+ batch_size = 1
+ input = torch.rand(batch_size, 3, 224, 224)

@@ -155,6 +155,101 @@ font-size: var(--jp-ui-font-size1);
   background-size: contain;  
 }
 
+.dialog{
+body {
+  margin: 0;
+  height: 100vh;
+  width:600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  background: #e3d0b6;
+}
+
+#cookie-policy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 460px;
+  height: 600px;
+  background: #f3efe6;
+  border-radius: 12px;
+  transform: scale(.8);
+}
+
+#cookie-wrapper {
+  height: 240px;
+  width: 240px;
+  margin: 30px 0;
+  position: relative;
+  left: -40px;
+}
+
+h1 {
+  color: #6c3a1f;
+  text-align: center;
+  font-size: 36px;
+  margin: 0;
+}
+
+p {
+  color: #a28561;
+  font-size: 14px;
+  margin-top: 0;
+  padding: 0 60px;
+  text-align: center;
+}
+a {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #a28561;
+  text-decoration: none;
+  pointer-events: none;
+}
+a:hover {
+  color: #846b4d;
+}
+
+span {
+  font-family: "Amatic SC", cursive;
+  font-weight: 400;
+  font-size: 20px;
+  position: relative;
+  top: -18px;
+  left: 3px;
+  color: #a28561; 
+}
+
+#heart-no, #thought-heart-yes, #mouth, #face-no, #thought-1, #thought-2, #thought-heart-na, #q-mark, #eyes, #leg-l, #leg-r {
+  opacity: 0;
+}
+}
+.dia_button {
+  color: white;
+  background: #dd794a;
+  margin-top: 12px;
+  cursor: pointer;
+  font-size: 24px;
+  font-family: "Poppins", sans-serif;
+  border-radius: 9px;
+  border: none;
+  width: 72%;
+  padding: 12px 0;
+  transition: 150ms ease-out;
+  pointer-events: none;
+}
+
+.dia_button:hover {
+  background: #d66029;
+}
+
+.pad{
+  padding-left:6%
+}
+
 :root {
   /* Elevation
    *

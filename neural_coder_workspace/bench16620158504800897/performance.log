@@ -1,0 +1,61 @@
+2022-09-01 15:04:35 [WARNING] Force convert framework model to neural_compressor model.
+2022-09-01 15:04:35 [INFO] Pass query framework capability elapsed time: 9.35 ms
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/ao/quantization/qconfig.py:92: UserWarning: QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead
+  warnings.warn("QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead")
+2022-09-01 15:04:36 [INFO] |*******Mixed Precision Statistics*******|
+2022-09-01 15:04:36 [INFO] +--------------+---------+-------+-------+
+2022-09-01 15:04:36 [INFO] |   Op Type    |  Total  |  INT8 |  BF16 |
+2022-09-01 15:04:36 [INFO] +--------------+---------+-------+-------+
+2022-09-01 15:04:36 [INFO] |  Embedding   |    3    |   3   |   0   |
+2022-09-01 15:04:36 [INFO] |    Linear    |    49   |   0   |   49  |
+2022-09-01 15:04:36 [INFO] +--------------+---------+-------+-------+
+2022-09-01 15:04:36 [INFO] Pass quantize model elapsed time: 634.57 ms
+2022-09-01 15:04:36 [INFO] Specified timeout or max trials is reached! Found a converted model which meet accuracy goal. Exit.
+2022-09-01 15:04:36 [INFO] Save deploy yaml to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_15-04-28/deploy.yaml
+2022-09-01 15:04:36 [INFO] Mixed Precision is done. Please invoke model.save() to save optimized model to disk.
+the medium sized bird has a dark grey color, a black downward curved beak, and long wings.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 5890.88it/s]
+1it [00:00, 233.98it/s]
+the bird is dark grey brown with a thick curved bill and a flat shaped tail.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 11983.73it/s]
+1it [00:00, 575.59it/s]
+bird has brown body feathers, white breast feathers and black beak
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 12409.18it/s]
+1it [00:00, 694.77it/s]
+this bird has a dark brown overall body color, with a small white patch around the base of the bill.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 12787.51it/s]
+1it [00:00, 625.27it/s]
+the bird has very long and large brown wings, as well as a black body and a long black beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 13148.29it/s]
+1it [00:00, 690.42it/s]
+it is a type of albatross with black wings, tail, back and beak, and has a white ring at the base of its beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 13842.59it/s]
+1it [00:00, 601.85it/s]
+this bird has brown plumage and a white ring at the base of its long, curved brown beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 13066.37it/s]
+1it [00:00, 802.89it/s]
+the entire body is dark brown, as is the bill, with a white band encircling where the bill meets the head.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 13662.23it/s]
+1it [00:00, 594.09it/s]
+this bird is gray in color, with a large curved beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 12122.27it/s]
+1it [00:00, 875.82it/s]
+a large gray bird with a long wingspan and a long black beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 14122.24it/s]
+1it [00:00, 866.95it/s]
+running inference ...
+Neural_Coder_Bench_IPS:  5.021
+Neural_Coder_Bench_MSPI:  199.176
+Neural_Coder_Bench_P50:  197.644
+Neural_Coder_Bench_P90:  206.013
+Neural_Coder_Bench_P99:  206.013

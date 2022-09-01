@@ -1,0 +1,72 @@
+2022-09-01 17:42:19 [INFO] Generate a fake evaluation function.
+2022-09-01 17:42:19 [INFO] Pass query framework capability elapsed time: 8.63 ms
+2022-09-01 17:42:19 [INFO] Get FP32 model baseline.
+2022-09-01 17:42:19 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_17-42-12/./history.snapshot.
+2022-09-01 17:42:19 [INFO] FP32 baseline is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/ao/quantization/qconfig.py:92: UserWarning: QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead
+  warnings.warn("QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead")
+2022-09-01 17:42:27 [INFO] |******Mixed Precision Statistics*****|
+2022-09-01 17:42:27 [INFO] +----------------+----------+---------+
+2022-09-01 17:42:27 [INFO] |    Op Type     |  Total   |   INT8  |
+2022-09-01 17:42:27 [INFO] +----------------+----------+---------+
+2022-09-01 17:42:27 [INFO] |   Embedding    |    3     |    3    |
+2022-09-01 17:42:27 [INFO] |     Linear     |    49    |    49   |
+2022-09-01 17:42:27 [INFO] +----------------+----------+---------+
+2022-09-01 17:42:27 [INFO] Pass quantize model elapsed time: 7613.03 ms
+2022-09-01 17:42:27 [INFO] Tune 1 result is: [Accuracy (int8|fp32): 1.0000|1.0000, Duration (seconds) (int8|fp32): 0.0000|0.0000], Best tune result is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+2022-09-01 17:42:27 [INFO] |**********************Tune Result Statistics**********************|
+2022-09-01 17:42:27 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 17:42:27 [INFO] |     Info Type      | Baseline | Tune 1 result | Best tune result |
+2022-09-01 17:42:27 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 17:42:27 [INFO] |      Accuracy      | 1.0000   |    1.0000     |     1.0000       |
+2022-09-01 17:42:27 [INFO] | Duration (seconds) | 0.0000   |    0.0000     |     0.0000       |
+2022-09-01 17:42:27 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 17:42:27 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_17-42-12/./history.snapshot.
+2022-09-01 17:42:27 [INFO] Specified timeout or max trials is reached! Found a quantized model which meet accuracy goal. Exit.
+2022-09-01 17:42:27 [INFO] Save deploy yaml to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_17-42-12/deploy.yaml
+the medium sized bird has a dark grey color, a black downward curved beak, and long wings.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 6921.29it/s]
+1it [00:00, 257.05it/s]
+the bird is dark grey brown with a thick curved bill and a flat shaped tail.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 12710.01it/s]
+1it [00:00, 599.53it/s]
+bird has brown body feathers, white breast feathers and black beak
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 13315.25it/s]
+1it [00:00, 721.41it/s]
+this bird has a dark brown overall body color, with a small white patch around the base of the bill.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 13148.29it/s]
+1it [00:00, 654.95it/s]
+the bird has very long and large brown wings, as well as a black body and a long black beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 13934.56it/s]
+1it [00:00, 758.46it/s]
+it is a type of albatross with black wings, tail, back and beak, and has a white ring at the base of its beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 14413.42it/s]
+1it [00:00, 647.47it/s]
+this bird has brown plumage and a white ring at the base of its long, curved brown beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 14413.42it/s]
+1it [00:00, 850.25it/s]
+the entire body is dark brown, as is the bill, with a white band encircling where the bill meets the head.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 12671.61it/s]
+1it [00:00, 649.37it/s]
+this bird is gray in color, with a large curved beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 12787.51it/s]
+1it [00:00, 873.45it/s]
+a large gray bird with a long wingspan and a long black beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 13981.01it/s]
+1it [00:00, 833.20it/s]
+running inference ...
+Neural_Coder_Bench_IPS:  5.936
+Neural_Coder_Bench_MSPI:  168.464
+Neural_Coder_Bench_P50:  164.08
+Neural_Coder_Bench_P90:  178.853
+Neural_Coder_Bench_P99:  178.853

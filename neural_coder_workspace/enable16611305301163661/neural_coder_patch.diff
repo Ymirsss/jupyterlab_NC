@@ -1,0 +1,98 @@
+--- /home2/longxin/Neural_Coder_EXT/tmp.py	2022-08-22 09:08:49.966666805 +0800
++++ /home2/longxin/Neural_Coder_EXT/tmp_nc_enabled.py	2022-08-22 09:08:51.238789635 +0800
+@@ -518,6 +518,44 @@ def main():
+         tokenizer=tokenizer,
+         data_collator=data_collator,
+     )
++    # [NeuralCoder] pytorch_inc_static_quant_ipex for model [Beginning Line]
++    if "GraphModule" not in str(type(model)):
++        def eval_func(model):
++            trainer.model = model
++            metrics = trainer.evaluate() # check if all tasks do not have parameters in evaluate()
++            keys = [
++                "eval_accuracy",
++                "eval_bleu",
++                "eval_matthews_correlation",
++                "eval_pearsonr",
++                "eval_precision",
++                "eval_recall",
++                "eval_rouge",
++                "eval_sacrebleu",
++                "eval_spearmanr",
++                "eval_mcc",
++                "eval_acc",
++                "eval_acc_and_f1",
++                "eval_corr",
++                "eval_mnli/acc",
++                "eval_mnli-mm/acc",
++            ] # METRIC_TAGS in transformers
++            for key in keys:
++                if key in metrics.keys():
++                    return metrics[key]
++            assert False, "No metric returned, Please check inference metric!"
++        from neural_compressor.conf.config import QuantConf
++        from neural_compressor.experimental import Quantization, common
++        quant_config = QuantConf()
++        quant_config.usr_cfg.model.framework = "pytorch_ipex"
++        quantizer = Quantization(quant_config)
++        quantizer.model = common.Model(model)
++        quantizer.calib_dataloader = trainer.get_eval_dataloader()
++        quantizer.eval_func = eval_func
++        model = quantizer()
++        model = model.model
++        model.eval()
++    # [NeuralCoder] pytorch_inc_static_quant_ipex for model [Ending Line]
+ 
+     # Training
+     if training_args.do_train:
+@@ -552,7 +590,49 @@ def main():
+             combined = {}
+ 
+         for eval_dataset, task in zip(eval_datasets, tasks):
+-            metrics = trainer.evaluate(eval_dataset=eval_dataset)
++            # [NeuralCoder] pytorch_benchmark [Beginning Line] 
++            if not False:
++                try:
++                    time
++                    time_nc = time.time
++                except:
++                    from time import time as time_nc
++                count_iter_ = 0
++                total_time_ = 0
++                num_iter_ = 10
++                num_warmup_iter_ = 5
++                list_batch_time_ = []
++                for i_ in range(num_iter_):
++                    count_iter_ = count_iter_ + 1
++                    if count_iter_ > num_warmup_iter_:
++                        t1_ = time_nc()
++                    try:
++                        torch
++                        no_grad = torch.no_grad
++                    except:
++                        from torch import no_grad
++                    with no_grad():
++            # [NeuralCoder] pytorch_benchmark [Ending Line]
++                        metrics = trainer.evaluate(eval_dataset=eval_dataset)
++            # [NeuralCoder] pytorch_benchmark [Beginning Line] 
++                    if count_iter_ > num_warmup_iter_:
++                        t2_ = time_nc()
++                        batch_time_ = t2_ - t1_
++                        list_batch_time_.append(batch_time_)
++                        total_time_ = total_time_ + batch_time_
++                print("Neural_Coder_Bench_IPS: ", round((num_iter_ - num_warmup_iter_) / total_time_, 3))
++                print("Neural_Coder_Bench_MSPI: ", round(total_time_ / (num_iter_ - num_warmup_iter_) * 1000, 3))
++                list_batch_time_.sort()
++                p50_latency_ = list_batch_time_[int(len(list_batch_time_) * 0.50) - 1] * 1000
++                p90_latency_ = list_batch_time_[int(len(list_batch_time_) * 0.90) - 1] * 1000
++                p99_latency_ = list_batch_time_[int(len(list_batch_time_) * 0.99) - 1] * 1000
++                print("Neural_Coder_Bench_P50: ", round(p50_latency_, 3))
++                print("Neural_Coder_Bench_P90: ", round(p90_latency_, 3))
++                print("Neural_Coder_Bench_P99: ", round(p99_latency_, 3))
++                quit()
++            else:
++                metrics = trainer.evaluate(eval_dataset=eval_dataset)
++            # [NeuralCoder] pytorch_benchmark [Ending Line]
+ 
+             max_eval_samples = (
+                 data_args.max_eval_samples if data_args.max_eval_samples is not None else len(eval_dataset)

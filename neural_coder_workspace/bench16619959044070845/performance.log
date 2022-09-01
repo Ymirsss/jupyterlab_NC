@@ -1,0 +1,66 @@
+=> using pre-trained model 'alexnet'
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+using CPU, this will be slow
+2022-09-01 09:32:13 [INFO] Pass query framework capability elapsed time: 247.24 ms
+2022-09-01 09:32:13 [INFO] Get FP32 model baseline.
+Test: [ 1/90]	Time  1.337 ( 1.337)	Loss 8.7625e+00 (8.7625e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [11/90]	Time  0.179 ( 0.284)	Loss 8.7625e+00 (8.7625e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [21/90]	Time  0.203 ( 0.241)	Loss 8.7625e+00 (8.7625e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [31/90]	Time  0.226 ( 0.232)	Loss 8.7625e+00 (8.7625e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [41/90]	Time  0.213 ( 0.227)	Loss 8.7625e+00 (8.7625e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [51/90]	Time  0.195 ( 0.221)	Loss 8.7625e+00 (8.7625e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [61/90]	Time  0.246 ( 0.219)	Loss 8.7625e+00 (8.7625e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [71/90]	Time  0.212 ( 0.219)	Loss 8.7625e+00 (8.7625e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [81/90]	Time  0.195 ( 0.219)	Loss 8.7625e+00 (8.7625e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+ *   Acc@1 0.000 Acc@5 0.000
+2022-09-01 09:32:32 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_09-32-00/./history.snapshot.
+2022-09-01 09:32:32 [INFO] FP32 baseline is: [Accuracy: 0.0000, Duration (seconds): 18.9865]
+2022-09-01 09:32:32 [WARNING] Please note that calibration sampling size 100 isn't divisible exactly by batch size 112. So the real sampling size is 112.
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/nn/quantized/_reference/modules/utils.py:25: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor(weight_qparams["scale"], dtype=torch.float, device=device))
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/nn/quantized/_reference/modules/utils.py:28: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor(weight_qparams["zero_point"], dtype=zero_point_dtype, device=device))
+2022-09-01 09:32:35 [INFO] |********Mixed Precision Statistics*******|
+2022-09-01 09:32:35 [INFO] +------------------------+--------+-------+
+2022-09-01 09:32:35 [INFO] |        Op Type         | Total  |  INT8 |
+2022-09-01 09:32:35 [INFO] +------------------------+--------+-------+
+2022-09-01 09:32:35 [INFO] |  quantize_per_tensor   |   1    |   1   |
+2022-09-01 09:32:35 [INFO] |       ConvReLU2d       |   5    |   5   |
+2022-09-01 09:32:35 [INFO] |       MaxPool2d        |   3    |   3   |
+2022-09-01 09:32:35 [INFO] |   AdaptiveAvgPool2d    |   1    |   1   |
+2022-09-01 09:32:35 [INFO] |        flatten         |   1    |   1   |
+2022-09-01 09:32:35 [INFO] |        Dropout         |   2    |   2   |
+2022-09-01 09:32:35 [INFO] |       LinearReLU       |   2    |   2   |
+2022-09-01 09:32:35 [INFO] |         Linear         |   1    |   1   |
+2022-09-01 09:32:35 [INFO] |       dequantize       |   1    |   1   |
+2022-09-01 09:32:35 [INFO] +------------------------+--------+-------+
+2022-09-01 09:32:35 [INFO] Pass quantize model elapsed time: 2951.73 ms
+Test: [ 1/90]	Time  1.001 ( 1.001)	Loss 8.5123e+00 (8.5123e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [11/90]	Time  0.071 ( 0.194)	Loss 8.5123e+00 (8.5123e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [21/90]	Time  0.061 ( 0.141)	Loss 8.5123e+00 (8.5123e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [31/90]	Time  0.224 ( 0.154)	Loss 8.5123e+00 (8.5123e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [41/90]	Time  0.100 ( 0.156)	Loss 8.5123e+00 (8.5123e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [51/90]	Time  0.363 ( 0.151)	Loss 8.5123e+00 (8.5123e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [61/90]	Time  0.153 ( 0.152)	Loss 8.5123e+00 (8.5123e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [71/90]	Time  0.066 ( 0.149)	Loss 8.5123e+00 (8.5123e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+Test: [81/90]	Time  0.068 ( 0.150)	Loss 8.5123e+00 (8.5123e+00)	Acc@1   0.00 (  0.00)	Acc@5   0.00 (  0.00)
+ *   Acc@1 0.000 Acc@5 0.000
+2022-09-01 09:32:48 [INFO] Tune 1 result is: [Accuracy (int8|fp32): 0.0000|0.0000, Duration (seconds) (int8|fp32): 13.2118|18.9865], Best tune result is: [Accuracy: 0.0000, Duration (seconds): 13.2118]
+2022-09-01 09:32:48 [INFO] |**********************Tune Result Statistics**********************|
+2022-09-01 09:32:48 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 09:32:48 [INFO] |     Info Type      | Baseline | Tune 1 result | Best tune result |
+2022-09-01 09:32:48 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 09:32:48 [INFO] |      Accuracy      | 0.0000   |    0.0000     |     0.0000       |
+2022-09-01 09:32:48 [INFO] | Duration (seconds) | 18.9865  |    13.2118    |     13.2118      |
+2022-09-01 09:32:48 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 09:32:48 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_09-32-00/./history.snapshot.
+2022-09-01 09:32:48 [INFO] Specified timeout or max trials is reached! Found a quantized model which meet accuracy goal. Exit.
+2022-09-01 09:32:48 [INFO] Save deploy yaml to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_09-32-00/deploy.yaml
+Neural_Coder_Bench_IPS:  37.183
+Neural_Coder_Bench_MSPI:  26.894
+Neural_Coder_Bench_P50:  26.675
+Neural_Coder_Bench_P90:  26.826
+Neural_Coder_Bench_P99:  26.826

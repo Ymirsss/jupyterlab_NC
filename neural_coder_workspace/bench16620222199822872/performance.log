@@ -1,0 +1,85 @@
+the medium sized bird has a dark grey color, a black downward curved beak, and long wings.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 10538.45it/s]
+1it [00:00, 449.50it/s]
+the bird is dark grey brown with a thick curved bill and a flat shaped tail.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 18558.87it/s]
+1it [00:00, 950.01it/s]
+bird has brown body feathers, white breast feathers and black beak
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 22192.08it/s]
+1it [00:00, 1010.19it/s]
+this bird has a dark brown overall body color, with a small white patch around the base of the bill.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 21845.33it/s]
+1it [00:00, 951.95it/s]
+the bird has very long and large brown wings, as well as a black body and a long black beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 16644.06it/s]
+1it [00:00, 1125.69it/s]
+it is a type of albatross with black wings, tail, back and beak, and has a white ring at the base of its beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 24244.53it/s]
+1it [00:00, 925.69it/s]
+this bird has brown plumage and a white ring at the base of its long, curved brown beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 27060.03it/s]
+1it [00:00, 1430.53it/s]
+the entire body is dark brown, as is the bill, with a white band encircling where the bill meets the head.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 21183.35it/s]
+1it [00:00, 1238.35it/s]
+this bird is gray in color, with a large curved beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 26051.58it/s]
+1it [00:00, 1539.19it/s]
+a large gray bird with a long wingspan and a long black beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 26379.27it/s]
+1it [00:00, 1341.75it/s]
+2022-09-01 16:50:58 [INFO] Pass query framework capability elapsed time: 1185.1 ms
+2022-09-01 16:50:59 [INFO] Get FP32 model baseline.
+2022-09-01 16:50:59 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_16-50-45/./history.snapshot.
+2022-09-01 16:50:59 [INFO] FP32 baseline is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/ao/quantization/qconfig.py:92: UserWarning: QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead
+  warnings.warn("QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead")
+2022-09-01 16:50:59 [INFO] Fx trace of the entire model failed, We will conduct auto quantization
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/nn/quantized/_reference/modules/utils.py:25: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor(weight_qparams["scale"], dtype=torch.float, device=device))
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/nn/quantized/_reference/modules/utils.py:28: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  torch.tensor(weight_qparams["zero_point"], dtype=zero_point_dtype, device=device))
+2022-09-01 16:51:10 [INFO] |*********Mixed Precision Statistics********|
+2022-09-01 16:51:10 [INFO] +---------------------+-------+------+------+
+2022-09-01 16:51:10 [INFO] |       Op Type       | Total | INT8 | FP32 |
+2022-09-01 16:51:10 [INFO] +---------------------+-------+------+------+
+2022-09-01 16:51:10 [INFO] |      Embedding      |   3   |  3   |  0   |
+2022-09-01 16:51:10 [INFO] |      ConvReLU2d     |   7   |  0   |  7   |
+2022-09-01 16:51:10 [INFO] |        Conv2d       |   5   |  0   |  5   |
+2022-09-01 16:51:10 [INFO] |   ConvTranspose2d   |   3   |  0   |  3   |
+2022-09-01 16:51:10 [INFO] |      LayerNorm      |   25  |  0   |  25  |
+2022-09-01 16:51:10 [INFO] | quantize_per_tensor |   36  |  36  |  0   |
+2022-09-01 16:51:10 [INFO] |        Linear       |   49  |  36  |  13  |
+2022-09-01 16:51:10 [INFO] |      dequantize     |   36  |  36  |  0   |
+2022-09-01 16:51:10 [INFO] |       Dropout       |   24  |  0   |  24  |
+2022-09-01 16:51:10 [INFO] |        cache        |   12  |  12  |  0   |
+2022-09-01 16:51:10 [INFO] |      cache_key      |   12  |  12  |  0   |
+2022-09-01 16:51:10 [INFO] +---------------------+-------+------+------+
+2022-09-01 16:51:10 [INFO] Pass quantize model elapsed time: 11391.51 ms
+2022-09-01 16:51:10 [INFO] Tune 1 result is: [Accuracy (int8|fp32): 1.0000|1.0000, Duration (seconds) (int8|fp32): 0.0000|0.0000], Best tune result is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+2022-09-01 16:51:10 [INFO] |**********************Tune Result Statistics**********************|
+2022-09-01 16:51:10 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 16:51:10 [INFO] |     Info Type      | Baseline | Tune 1 result | Best tune result |
+2022-09-01 16:51:10 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 16:51:10 [INFO] |      Accuracy      | 1.0000   |    1.0000     |     1.0000       |
+2022-09-01 16:51:10 [INFO] | Duration (seconds) | 0.0000   |    0.0000     |     0.0000       |
+2022-09-01 16:51:10 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 16:51:10 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_16-50-45/./history.snapshot.
+2022-09-01 16:51:10 [INFO] Specified timeout or max trials is reached! Found a quantized model which meet accuracy goal. Exit.
+2022-09-01 16:51:10 [INFO] Save deploy yaml to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_16-50-45/deploy.yaml
+running inference ...
+Neural_Coder_Bench_IPS:  3.266
+Neural_Coder_Bench_MSPI:  306.178
+Neural_Coder_Bench_P50:  304.183
+Neural_Coder_Bench_P90:  345.958
+Neural_Coder_Bench_P99:  345.958

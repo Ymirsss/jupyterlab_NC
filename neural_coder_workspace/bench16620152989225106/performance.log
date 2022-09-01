@@ -1,0 +1,46 @@
+the medium sized bird has a dark grey color, a black downward curved beak, and long wings.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 20460.02it/s]
+1it [00:00, 767.63it/s]
+the bird is dark grey brown with a thick curved bill and a flat shaped tail.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 38130.04it/s]
+1it [00:00, 1896.16it/s]
+bird has brown body feathers, white breast feathers and black beak
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 45100.04it/s]
+1it [00:00, 2349.75it/s]
+this bird has a dark brown overall body color, with a small white patch around the base of the bill.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 46091.25it/s]
+1it [00:00, 2261.08it/s]
+the bird has very long and large brown wings, as well as a black body and a long black beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 47127.01it/s]
+1it [00:00, 2851.33it/s]
+it is a type of albatross with black wings, tail, back and beak, and has a white ring at the base of its beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 44620.26it/s]
+1it [00:00, 2241.74it/s]
+this bird has brown plumage and a white ring at the base of its long, curved brown beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 47127.01it/s]
+1it [00:00, 2794.34it/s]
+the entire body is dark brown, as is the bill, with a white band encircling where the bill meets the head.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 42366.71it/s]
+1it [00:00, 2154.24it/s]
+this bird is gray in color, with a large curved beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 45590.26it/s]
+1it [00:00, 2993.79it/s]
+a large gray bird with a long wingspan and a long black beak.
+0it [00:00, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s][A100%|██████████| 1/1 [00:00<00:00, 44620.26it/s]
+1it [00:00, 1915.21it/s]
+running inference ...
+Neural_Coder_Bench_IPS:  2.559
+Neural_Coder_Bench_MSPI:  390.852
+Neural_Coder_Bench_P50:  382.657
+Neural_Coder_Bench_P90:  422.437
+Neural_Coder_Bench_P99:  422.437

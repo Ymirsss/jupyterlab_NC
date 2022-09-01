@@ -1,0 +1,347 @@
+09/01/2022 09:10:55 - WARNING - __main__ - Process rank: -1, device: cpu, n_gpu: 0distributed training: False, 16-bits training: False
+09/01/2022 09:10:55 - INFO - __main__ - Training/evaluation parameters TrainingArguments(
+_n_gpu=0,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_pin_memory=True,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+debug=[],
+deepspeed=None,
+disable_tqdm=False,
+do_eval=True,
+do_predict=False,
+do_train=False,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+gradient_accumulation_steps=1,
+gradient_checkpointing=False,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=-1,
+log_level=-1,
+log_level_replica=-1,
+log_on_each_node=True,
+logging_dir=result/runs/Sep01_09-10-54_mlp-spr-05,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=500,
+logging_strategy=steps,
+lr_scheduler_type=linear,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+no_cuda=False,
+num_train_epochs=3.0,
+optim=adamw_hf,
+output_dir=result,
+overwrite_output_dir=False,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=result,
+save_on_each_node=False,
+save_steps=500,
+save_strategy=steps,
+save_total_limit=None,
+seed=42,
+sharded_ddp=[],
+skip_memory_metrics=True,
+tf32=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+xpu_backend=None,
+)
+09/01/2022 09:10:58 - INFO - datasets.info - Loading Dataset Infos from /home2/longxin/.cache/huggingface/modules/datasets_modules/datasets/glue/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad
+09/01/2022 09:10:58 - INFO - datasets.builder - Overwrite dataset info from restored data version.
+09/01/2022 09:10:58 - INFO - datasets.info - Loading Dataset info from /home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad
+09/01/2022 09:10:58 - WARNING - datasets.builder - Reusing dataset glue (/home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad)
+09/01/2022 09:10:58 - INFO - datasets.info - Loading Dataset info from /home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad
+  0%|          | 0/3 [00:00<?, ?it/s]100%|██████████| 3/3 [00:00<00:00, 201.60it/s]
+[INFO|configuration_utils.py:681] 2022-09-01 09:10:59,719 >> loading configuration file https://huggingface.co/albert-base-v2/resolve/main/config.json from cache at /home2/longxin/.cache/huggingface/transformers/e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|configuration_utils.py:730] 2022-09-01 09:10:59,850 >> Model config AlbertConfig {
+  "_name_or_path": "albert-base-v2",
+  "architectures": [
+    "AlbertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "finetuning_task": "sst2",
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.21.2",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|tokenization_auto.py:404] 2022-09-01 09:11:00,818 >> Could not locate the tokenizer configuration file, will try to use the model config instead.
+[INFO|configuration_utils.py:681] 2022-09-01 09:11:01,818 >> loading configuration file https://huggingface.co/albert-base-v2/resolve/main/config.json from cache at /home2/longxin/.cache/huggingface/transformers/e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|configuration_utils.py:730] 2022-09-01 09:11:01,820 >> Model config AlbertConfig {
+  "_name_or_path": "albert-base-v2",
+  "architectures": [
+    "AlbertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.21.2",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|tokenization_utils_base.py:1803] 2022-09-01 09:11:07,742 >> loading file https://huggingface.co/albert-base-v2/resolve/main/spiece.model from cache at /home2/longxin/.cache/huggingface/transformers/10be6ce6d3508f1fdce98a57a574283b47c055228c1235f8686f039287ff8174.d6110e25022b713452eb83d5bfa8ae64530995a93d8e694fe52e05aa85dd3a7d
+[INFO|tokenization_utils_base.py:1803] 2022-09-01 09:11:07,743 >> loading file https://huggingface.co/albert-base-v2/resolve/main/tokenizer.json from cache at /home2/longxin/.cache/huggingface/transformers/828a43aa4b9d07e2b7d3be7c6bc10a3ae6e16e8d9c3a0c557783639de9eaeb1b.670e237d152dd53ef77575d4f4a6cd34158db03128fe4f63437ce0d5992bac74
+[INFO|tokenization_utils_base.py:1803] 2022-09-01 09:11:07,743 >> loading file https://huggingface.co/albert-base-v2/resolve/main/added_tokens.json from cache at None
+[INFO|tokenization_utils_base.py:1803] 2022-09-01 09:11:07,743 >> loading file https://huggingface.co/albert-base-v2/resolve/main/special_tokens_map.json from cache at None
+[INFO|tokenization_utils_base.py:1803] 2022-09-01 09:11:07,743 >> loading file https://huggingface.co/albert-base-v2/resolve/main/tokenizer_config.json from cache at None
+[INFO|configuration_utils.py:681] 2022-09-01 09:11:08,719 >> loading configuration file https://huggingface.co/albert-base-v2/resolve/main/config.json from cache at /home2/longxin/.cache/huggingface/transformers/e48be00f755a5f765e36a32885e8d6a573081df3321c9e19428d12abadf7dba2.b8f28145885741cf994c0e8a97b724f6c974460c297002145e48e511d2496e88
+[INFO|configuration_utils.py:730] 2022-09-01 09:11:08,721 >> Model config AlbertConfig {
+  "_name_or_path": "albert-base-v2",
+  "architectures": [
+    "AlbertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0,
+  "bos_token_id": 2,
+  "classifier_dropout_prob": 0.1,
+  "down_scale_factor": 1,
+  "embedding_size": 128,
+  "eos_token_id": 3,
+  "gap_size": 0,
+  "hidden_act": "gelu_new",
+  "hidden_dropout_prob": 0,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "inner_group_num": 1,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "albert",
+  "net_structure_type": 0,
+  "num_attention_heads": 12,
+  "num_hidden_groups": 1,
+  "num_hidden_layers": 12,
+  "num_memory_blocks": 0,
+  "pad_token_id": 0,
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.21.2",
+  "type_vocab_size": 2,
+  "vocab_size": 30000
+}
+
+[INFO|modeling_utils.py:2041] 2022-09-01 09:11:10,167 >> loading weights file https://huggingface.co/albert-base-v2/resolve/main/pytorch_model.bin from cache at /home2/longxin/.cache/huggingface/transformers/bf1986d976e9a8320cbd3a0597e610bf299d639ce31b7ca581cbf54be3aaa6d3.d6d54047dfe6ae844e3bf6e7a7d0aff71cb598d3df019361e076ba7639b1da9b
+[WARNING|modeling_utils.py:2425] 2022-09-01 09:11:10,368 >> Some weights of the model checkpoint at albert-base-v2 were not used when initializing AlbertForSequenceClassification: ['predictions.dense.bias', 'predictions.bias', 'predictions.LayerNorm.weight', 'predictions.decoder.bias', 'predictions.LayerNorm.bias', 'predictions.dense.weight', 'predictions.decoder.weight']
+- This IS expected if you are initializing AlbertForSequenceClassification from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing AlbertForSequenceClassification from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[WARNING|modeling_utils.py:2437] 2022-09-01 09:11:10,368 >> Some weights of AlbertForSequenceClassification were not initialized from the model checkpoint at albert-base-v2 and are newly initialized: ['classifier.weight', 'classifier.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+09/01/2022 09:11:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad/cache-bc2c4fa1eb57ca42.arrow
+09/01/2022 09:11:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad/cache-056cfa564bc2fca3.arrow
+09/01/2022 09:11:10 - WARNING - datasets.arrow_dataset - Loading cached processed dataset at /home2/longxin/.cache/huggingface/datasets/glue/sst2/1.0.0/dacbe3125aa31d7f70367a07a8a9e72a5a0bfeb5fc42e75c9db75b96da6053ad/cache-72b2abe0ca6ed4b4.arrow
+2022-09-01 09:11:25 [INFO] Generate a fake evaluation function.
+2022-09-01 09:11:25 [INFO] Pass query framework capability elapsed time: 1.65 ms
+2022-09-01 09:11:25 [INFO] Get FP32 model baseline.
+2022-09-01 09:11:25 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_09-11-15/./history.snapshot.
+2022-09-01 09:11:25 [INFO] FP32 baseline is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torch/ao/quantization/qconfig.py:92: UserWarning: QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead
+  warnings.warn("QConfigDynamic is going to be deprecated in PyTorch 1.12, please use QConfig instead")
+2022-09-01 09:11:26 [INFO] |******Mixed Precision Statistics*****|
+2022-09-01 09:11:26 [INFO] +----------------+----------+---------+
+2022-09-01 09:11:26 [INFO] |    Op Type     |  Total   |   INT8  |
+2022-09-01 09:11:26 [INFO] +----------------+----------+---------+
+2022-09-01 09:11:26 [INFO] |   Embedding    |    3     |    3    |
+2022-09-01 09:11:26 [INFO] |     Linear     |    9     |    9    |
+2022-09-01 09:11:26 [INFO] +----------------+----------+---------+
+2022-09-01 09:11:26 [INFO] Pass quantize model elapsed time: 231.58 ms
+2022-09-01 09:11:26 [INFO] Tune 1 result is: [Accuracy (int8|fp32): 1.0000|1.0000, Duration (seconds) (int8|fp32): 0.0000|0.0000], Best tune result is: [Accuracy: 1.0000, Duration (seconds): 0.0000]
+2022-09-01 09:11:26 [INFO] |**********************Tune Result Statistics**********************|
+2022-09-01 09:11:26 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 09:11:26 [INFO] |     Info Type      | Baseline | Tune 1 result | Best tune result |
+2022-09-01 09:11:26 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 09:11:26 [INFO] |      Accuracy      | 1.0000   |    1.0000     |     1.0000       |
+2022-09-01 09:11:26 [INFO] | Duration (seconds) | 0.0000   |    0.0000     |     0.0000       |
+2022-09-01 09:11:26 [INFO] +--------------------+----------+---------------+------------------+
+2022-09-01 09:11:26 [INFO] Save tuning history to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_09-11-15/./history.snapshot.
+2022-09-01 09:11:26 [INFO] Specified timeout or max trials is reached! Found a quantized model which meet accuracy goal. Exit.
+2022-09-01 09:11:26 [INFO] Save deploy yaml to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-09-01_09-11-15/deploy.yaml
+2022-09-01 09:11:26 [INFO] *** Evaluate ***
+[INFO|trainer.py:722] 2022-09-01 09:11:26,243 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:11:26,250 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:11:26,250 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:11:26,250 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  2%|▏         | 2/109 [00:00<00:06, 15.79it/s]  4%|▎         | 4/109 [00:00<00:08, 12.18it/s]  6%|▌         | 6/109 [00:00<00:08, 11.65it/s]  7%|▋         | 8/109 [00:00<00:08, 11.41it/s]  9%|▉         | 10/109 [00:00<00:08, 11.27it/s] 11%|█         | 12/109 [00:01<00:08, 11.79it/s] 13%|█▎        | 14/109 [00:01<00:07, 12.43it/s] 15%|█▍        | 16/109 [00:01<00:07, 12.89it/s] 17%|█▋        | 18/109 [00:01<00:06, 13.23it/s] 18%|█▊        | 20/109 [00:01<00:06, 13.43it/s] 20%|██        | 22/109 [00:01<00:06, 13.52it/s] 22%|██▏       | 24/109 [00:01<00:06, 13.64it/s] 24%|██▍       | 26/109 [00:02<00:06, 13.71it/s] 26%|██▌       | 28/109 [00:02<00:05, 13.79it/s] 28%|██▊       | 30/109 [00:02<00:05, 13.89it/s] 29%|██▉       | 32/109 [00:02<00:05, 13.97it/s] 31%|███       | 34/109 [00:02<00:05, 14.00it/s] 33%|███▎      | 36/109 [00:02<00:05, 14.00it/s] 35%|███▍      | 38/109 [00:02<00:05, 14.02it/s] 37%|███▋      | 40/109 [00:03<00:04, 13.87it/s] 39%|███▊      | 42/109 [00:03<00:04, 13.47it/s] 40%|████      | 44/109 [00:03<00:04, 13.51it/s] 42%|████▏     | 46/109 [00:03<00:04, 13.45it/s] 44%|████▍     | 48/109 [00:03<00:04, 13.41it/s] 46%|████▌     | 50/109 [00:03<00:04, 13.33it/s] 48%|████▊     | 52/109 [00:03<00:04, 13.39it/s] 50%|████▉     | 54/109 [00:04<00:04, 13.34it/s] 51%|█████▏    | 56/109 [00:04<00:03, 13.37it/s] 53%|█████▎    | 58/109 [00:04<00:03, 13.36it/s] 55%|█████▌    | 60/109 [00:04<00:03, 13.30it/s] 57%|█████▋    | 62/109 [00:04<00:03, 13.44it/s] 59%|█████▊    | 64/109 [00:04<00:03, 13.31it/s] 61%|██████    | 66/109 [00:04<00:03, 13.39it/s] 62%|██████▏   | 68/109 [00:05<00:03, 13.34it/s] 64%|██████▍   | 70/109 [00:05<00:02, 13.33it/s] 66%|██████▌   | 72/109 [00:05<00:02, 13.36it/s] 68%|██████▊   | 74/109 [00:05<00:02, 13.27it/s] 70%|██████▉   | 76/109 [00:05<00:02, 13.40it/s] 72%|███████▏  | 78/109 [00:05<00:02, 13.27it/s] 73%|███████▎  | 80/109 [00:06<00:02, 13.37it/s] 75%|███████▌  | 82/109 [00:06<00:02, 13.29it/s] 77%|███████▋  | 84/109 [00:06<00:01, 13.39it/s] 79%|███████▉  | 86/109 [00:06<00:01, 13.30it/s] 81%|████████  | 88/109 [00:06<00:01, 13.39it/s] 83%|████████▎ | 90/109 [00:06<00:01, 13.31it/s] 84%|████████▍ | 92/109 [00:06<00:01, 13.32it/s] 86%|████████▌ | 94/109 [00:07<00:01, 13.32it/s] 88%|████████▊ | 96/109 [00:07<00:00, 13.24it/s] 90%|████████▉ | 98/109 [00:07<00:00, 13.37it/s] 92%|█████████▏| 100/109 [00:07<00:00, 13.25it/s] 94%|█████████▎| 102/109 [00:07<00:00, 13.37it/s] 95%|█████████▌| 104/109 [00:07<00:00, 13.27it/s] 97%|█████████▋| 106/109 [00:07<00:00, 13.34it/s] 99%|█████████▉| 108/109 [00:08<00:00, 13.27it/s]2022-09-01 09:11:34 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 13.07it/s]
+[INFO|trainer.py:722] 2022-09-01 09:11:34,902 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:11:34,906 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:11:34,906 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:11:34,906 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 20.50it/s]  6%|▌         | 6/109 [00:00<00:06, 16.03it/s]  7%|▋         | 8/109 [00:00<00:06, 15.32it/s]  9%|▉         | 10/109 [00:00<00:06, 14.89it/s] 11%|█         | 12/109 [00:00<00:06, 14.63it/s] 13%|█▎        | 14/109 [00:00<00:06, 14.47it/s] 15%|█▍        | 16/109 [00:01<00:06, 14.36it/s] 17%|█▋        | 18/109 [00:01<00:06, 14.29it/s] 18%|█▊        | 20/109 [00:01<00:06, 13.89it/s] 20%|██        | 22/109 [00:01<00:06, 13.57it/s] 22%|██▏       | 24/109 [00:01<00:06, 13.63it/s] 24%|██▍       | 26/109 [00:01<00:06, 13.47it/s] 26%|██▌       | 28/109 [00:01<00:06, 13.44it/s] 28%|██▊       | 30/109 [00:02<00:05, 13.43it/s] 29%|██▉       | 32/109 [00:02<00:05, 13.42it/s] 31%|███       | 34/109 [00:02<00:05, 13.40it/s] 33%|███▎      | 36/109 [00:02<00:05, 13.45it/s] 35%|███▍      | 38/109 [00:02<00:05, 13.40it/s] 37%|███▋      | 40/109 [00:02<00:05, 13.45it/s] 39%|███▊      | 42/109 [00:03<00:05, 13.37it/s] 40%|████      | 44/109 [00:03<00:04, 13.45it/s] 42%|████▏     | 46/109 [00:03<00:04, 13.39it/s] 44%|████▍     | 48/109 [00:03<00:04, 13.40it/s] 46%|████▌     | 50/109 [00:03<00:04, 13.42it/s] 48%|████▊     | 52/109 [00:03<00:04, 13.46it/s] 50%|████▉     | 54/109 [00:03<00:04, 13.36it/s] 51%|█████▏    | 56/109 [00:04<00:03, 13.42it/s] 53%|█████▎    | 58/109 [00:04<00:03, 13.28it/s] 55%|█████▌    | 60/109 [00:04<00:03, 13.33it/s] 57%|█████▋    | 62/109 [00:04<00:03, 13.41it/s] 59%|█████▊    | 64/109 [00:04<00:03, 13.29it/s] 61%|██████    | 66/109 [00:04<00:03, 13.40it/s] 62%|██████▏   | 68/109 [00:04<00:03, 13.33it/s] 64%|██████▍   | 70/109 [00:05<00:02, 13.41it/s] 66%|██████▌   | 72/109 [00:05<00:02, 13.32it/s] 68%|██████▊   | 74/109 [00:05<00:02, 13.32it/s] 70%|██████▉   | 76/109 [00:05<00:02, 13.42it/s] 72%|███████▏  | 78/109 [00:05<00:02, 13.27it/s] 73%|███████▎  | 80/109 [00:05<00:02, 13.40it/s] 75%|███████▌  | 82/109 [00:06<00:02, 13.28it/s] 77%|███████▋  | 84/109 [00:06<00:01, 13.44it/s] 79%|███████▉  | 86/109 [00:06<00:01, 13.31it/s] 81%|████████  | 88/109 [00:06<00:01, 13.32it/s] 83%|████████▎ | 90/109 [00:06<00:01, 13.26it/s] 84%|████████▍ | 92/109 [00:06<00:01, 13.37it/s] 86%|████████▌ | 94/109 [00:06<00:01, 13.27it/s] 88%|████████▊ | 96/109 [00:07<00:00, 13.39it/s] 90%|████████▉ | 98/109 [00:07<00:00, 13.27it/s] 92%|█████████▏| 100/109 [00:07<00:00, 13.33it/s] 94%|█████████▎| 102/109 [00:07<00:00, 13.36it/s] 95%|█████████▌| 104/109 [00:07<00:00, 13.32it/s] 97%|█████████▋| 106/109 [00:07<00:00, 13.37it/s] 99%|█████████▉| 108/109 [00:07<00:00, 13.39it/s]2022-09-01 09:11:43 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 13.13it/s]
+[INFO|trainer.py:722] 2022-09-01 09:11:43,360 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:11:43,364 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:11:43,364 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:11:43,364 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 18.63it/s]  5%|▍         | 5/109 [00:00<00:06, 16.08it/s]  6%|▋         | 7/109 [00:00<00:06, 15.24it/s]  8%|▊         | 9/109 [00:00<00:06, 14.75it/s] 10%|█         | 11/109 [00:00<00:06, 14.39it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.28it/s] 14%|█▍        | 15/109 [00:01<00:06, 14.24it/s] 16%|█▌        | 17/109 [00:01<00:06, 14.22it/s] 17%|█▋        | 19/109 [00:01<00:06, 14.18it/s] 19%|█▉        | 21/109 [00:01<00:06, 14.15it/s] 21%|██        | 23/109 [00:01<00:06, 14.02it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.61it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.52it/s] 27%|██▋       | 29/109 [00:02<00:05, 13.71it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.45it/s] 30%|███       | 33/109 [00:02<00:05, 13.39it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.45it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.33it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.46it/s] 38%|███▊      | 41/109 [00:02<00:05, 13.34it/s] 39%|███▉      | 43/109 [00:03<00:04, 13.33it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.36it/s] 43%|████▎     | 47/109 [00:03<00:04, 13.31it/s] 45%|████▍     | 49/109 [00:03<00:04, 13.38it/s] 47%|████▋     | 51/109 [00:03<00:04, 13.28it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.44it/s] 50%|█████     | 55/109 [00:03<00:04, 13.33it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.37it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.40it/s] 56%|█████▌    | 61/109 [00:04<00:03, 13.31it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.45it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.35it/s] 61%|██████▏   | 67/109 [00:04<00:03, 13.36it/s] 63%|██████▎   | 69/109 [00:05<00:02, 13.36it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.37it/s] 67%|██████▋   | 73/109 [00:05<00:02, 13.22it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.39it/s] 71%|███████   | 77/109 [00:05<00:02, 13.34it/s] 72%|███████▏  | 79/109 [00:05<00:02, 13.35it/s] 74%|███████▍  | 81/109 [00:05<00:02, 13.34it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.38it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.35it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.40it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.31it/s] 83%|████████▎ | 91/109 [00:06<00:01, 13.42it/s] 85%|████████▌ | 93/109 [00:06<00:01, 13.32it/s] 87%|████████▋ | 95/109 [00:06<00:01, 13.37it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.35it/s] 91%|█████████ | 99/109 [00:07<00:00, 13.36it/s] 93%|█████████▎| 101/109 [00:07<00:00, 13.36it/s] 94%|█████████▍| 103/109 [00:07<00:00, 13.33it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.31it/s] 98%|█████████▊| 107/109 [00:07<00:00, 13.31it/s]100%|██████████| 109/109 [00:08<00:00, 13.31it/s]2022-09-01 09:11:51 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 13.11it/s]
+[INFO|trainer.py:722] 2022-09-01 09:11:51,834 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:11:51,839 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:11:51,839 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:11:51,839 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 18.19it/s]  5%|▍         | 5/109 [00:00<00:06, 15.86it/s]  6%|▋         | 7/109 [00:00<00:06, 15.05it/s]  8%|▊         | 9/109 [00:00<00:06, 14.69it/s] 10%|█         | 11/109 [00:00<00:06, 14.47it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.38it/s] 14%|█▍        | 15/109 [00:01<00:06, 14.26it/s] 16%|█▌        | 17/109 [00:01<00:06, 14.27it/s] 17%|█▋        | 19/109 [00:01<00:06, 14.18it/s] 19%|█▉        | 21/109 [00:01<00:06, 14.20it/s] 21%|██        | 23/109 [00:01<00:06, 13.99it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.63it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.60it/s] 27%|██▋       | 29/109 [00:02<00:05, 13.43it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.43it/s] 30%|███       | 33/109 [00:02<00:05, 13.41it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.39it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.31it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.43it/s] 38%|███▊      | 41/109 [00:02<00:05, 13.29it/s] 39%|███▉      | 43/109 [00:03<00:04, 13.38it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.27it/s] 43%|████▎     | 47/109 [00:03<00:04, 13.32it/s] 45%|████▍     | 49/109 [00:03<00:04, 13.33it/s] 47%|████▋     | 51/109 [00:03<00:04, 13.28it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.34it/s] 50%|█████     | 55/109 [00:04<00:04, 13.22it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.30it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.23it/s] 56%|█████▌    | 61/109 [00:04<00:03, 13.28it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.14it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.37it/s] 61%|██████▏   | 67/109 [00:04<00:03, 13.24it/s] 63%|██████▎   | 69/109 [00:05<00:03, 13.31it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.35it/s] 67%|██████▋   | 73/109 [00:05<00:02, 13.27it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.34it/s] 71%|███████   | 77/109 [00:05<00:02, 13.22it/s] 72%|███████▏  | 79/109 [00:05<00:02, 13.38it/s] 74%|███████▍  | 81/109 [00:05<00:02, 13.27it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.41it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.29it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.31it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.28it/s] 83%|████████▎ | 91/109 [00:06<00:01, 13.26it/s] 85%|████████▌ | 93/109 [00:06<00:01, 13.20it/s] 87%|████████▋ | 95/109 [00:07<00:01, 13.35it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.25it/s] 91%|█████████ | 99/109 [00:07<00:00, 13.32it/s] 93%|█████████▎| 101/109 [00:07<00:00, 13.28it/s] 94%|█████████▍| 103/109 [00:07<00:00, 13.28it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.28it/s] 98%|█████████▊| 107/109 [00:07<00:00, 13.17it/s]100%|██████████| 109/109 [00:08<00:00, 13.33it/s]2022-09-01 09:12:00 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 13.16it/s]
+[INFO|trainer.py:722] 2022-09-01 09:12:00,294 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:12:00,298 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:12:00,299 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:12:00,299 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 19.37it/s]  5%|▍         | 5/109 [00:00<00:06, 16.47it/s]  6%|▋         | 7/109 [00:00<00:06, 15.38it/s]  8%|▊         | 9/109 [00:00<00:06, 14.84it/s] 10%|█         | 11/109 [00:00<00:06, 14.51it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.37it/s] 14%|█▍        | 15/109 [00:01<00:06, 14.24it/s] 16%|█▌        | 17/109 [00:01<00:06, 14.14it/s] 17%|█▋        | 19/109 [00:01<00:06, 14.09it/s] 19%|█▉        | 21/109 [00:01<00:06, 14.00it/s] 21%|██        | 23/109 [00:01<00:06, 13.67it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.59it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.44it/s] 27%|██▋       | 29/109 [00:02<00:05, 13.47it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.42it/s] 30%|███       | 33/109 [00:02<00:05, 13.30it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.44it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.28it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.26it/s] 38%|███▊      | 41/109 [00:02<00:05, 13.33it/s] 39%|███▉      | 43/109 [00:03<00:05, 13.19it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.28it/s] 43%|████▎     | 47/109 [00:03<00:04, 13.23it/s] 45%|████▍     | 49/109 [00:03<00:04, 13.30it/s] 47%|████▋     | 51/109 [00:03<00:04, 13.20it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.32it/s] 50%|█████     | 55/109 [00:04<00:04, 13.22it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.29it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.25it/s] 56%|█████▌    | 61/109 [00:04<00:03, 13.27it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.29it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.28it/s] 61%|██████▏   | 67/109 [00:04<00:03, 13.30it/s] 63%|██████▎   | 69/109 [00:05<00:03, 13.25it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.29it/s] 67%|██████▋   | 73/109 [00:05<00:02, 13.13it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.29it/s] 71%|███████   | 77/109 [00:05<00:02, 13.19it/s] 72%|███████▏  | 79/109 [00:05<00:02, 13.34it/s] 74%|███████▍  | 81/109 [00:05<00:02, 13.20it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.27it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.26it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.20it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.26it/s] 83%|████████▎ | 91/109 [00:06<00:01, 13.19it/s] 85%|████████▌ | 93/109 [00:06<00:01, 13.31it/s] 87%|████████▋ | 95/109 [00:07<00:01, 13.20it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.34it/s] 91%|█████████ | 99/109 [00:07<00:00, 13.21it/s] 93%|█████████▎| 101/109 [00:07<00:00, 13.27it/s] 94%|█████████▍| 103/109 [00:07<00:00, 13.18it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.24it/s] 98%|█████████▊| 107/109 [00:07<00:00, 13.23it/s]100%|██████████| 109/109 [00:08<00:00, 13.14it/s]2022-09-01 09:12:08 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 13.14it/s]
+[INFO|trainer.py:722] 2022-09-01 09:12:08,756 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:12:08,760 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:12:08,760 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:12:08,760 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 18.30it/s]  5%|▍         | 5/109 [00:00<00:06, 15.97it/s]  6%|▋         | 7/109 [00:00<00:06, 15.09it/s]  8%|▊         | 9/109 [00:00<00:06, 14.70it/s] 10%|█         | 11/109 [00:00<00:06, 14.46it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.35it/s] 14%|█▍        | 15/109 [00:01<00:06, 14.22it/s] 16%|█▌        | 17/109 [00:01<00:06, 14.08it/s] 17%|█▋        | 19/109 [00:01<00:06, 14.10it/s] 19%|█▉        | 21/109 [00:01<00:06, 13.96it/s] 21%|██        | 23/109 [00:01<00:06, 13.63it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.58it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.38it/s] 27%|██▋       | 29/109 [00:02<00:05, 13.42it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.29it/s] 30%|███       | 33/109 [00:02<00:05, 13.44it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.25it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.25it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.32it/s] 38%|███▊      | 41/109 [00:02<00:05, 13.18it/s] 39%|███▉      | 43/109 [00:03<00:04, 13.33it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.20it/s] 43%|████▎     | 47/109 [00:03<00:04, 13.33it/s] 45%|████▍     | 49/109 [00:03<00:04, 13.22it/s] 47%|████▋     | 51/109 [00:03<00:04, 13.31it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.22it/s] 50%|█████     | 55/109 [00:04<00:04, 13.24it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.18it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.19it/s] 56%|█████▌    | 61/109 [00:04<00:03, 13.25it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.14it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.13it/s] 61%|██████▏   | 67/109 [00:04<00:03, 13.15it/s] 63%|██████▎   | 69/109 [00:05<00:03, 13.21it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.22it/s] 67%|██████▋   | 73/109 [00:05<00:02, 13.20it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.26it/s] 71%|███████   | 77/109 [00:05<00:02, 13.16it/s] 72%|███████▏  | 79/109 [00:05<00:02, 13.30it/s] 74%|███████▍  | 81/109 [00:05<00:02, 13.21it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.27it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.24it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.18it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.20it/s] 83%|████████▎ | 91/109 [00:06<00:01, 13.26it/s] 85%|████████▌ | 93/109 [00:06<00:01, 13.18it/s] 87%|████████▋ | 95/109 [00:07<00:01, 13.26it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.17it/s] 91%|█████████ | 99/109 [00:07<00:00, 13.23it/s] 93%|█████████▎| 101/109 [00:07<00:00, 13.24it/s] 94%|█████████▍| 103/109 [00:07<00:00, 13.21it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.26it/s] 98%|█████████▊| 107/109 [00:07<00:00, 13.16it/s]100%|██████████| 109/109 [00:08<00:00, 13.33it/s]2022-09-01 09:12:17 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 12.96it/s]
+[INFO|trainer.py:722] 2022-09-01 09:12:17,342 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:12:17,346 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:12:17,346 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:12:17,346 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 18.45it/s]  5%|▍         | 5/109 [00:00<00:06, 15.96it/s]  6%|▋         | 7/109 [00:00<00:06, 15.06it/s]  8%|▊         | 9/109 [00:00<00:06, 14.58it/s] 10%|█         | 11/109 [00:00<00:06, 14.41it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.26it/s] 14%|█▍        | 15/109 [00:01<00:06, 14.14it/s] 16%|█▌        | 17/109 [00:01<00:06, 14.12it/s] 17%|█▋        | 19/109 [00:01<00:06, 14.06it/s] 19%|█▉        | 21/109 [00:01<00:06, 14.05it/s] 21%|██        | 23/109 [00:01<00:06, 13.87it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.58it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.53it/s] 27%|██▋       | 29/109 [00:02<00:05, 13.38it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.22it/s] 30%|███       | 33/109 [00:02<00:05, 13.38it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.31it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.14it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.25it/s] 38%|███▊      | 41/109 [00:02<00:05, 13.12it/s] 39%|███▉      | 43/109 [00:03<00:05, 13.20it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.08it/s] 43%|████▎     | 47/109 [00:03<00:04, 13.27it/s] 45%|████▍     | 49/109 [00:03<00:04, 13.18it/s] 47%|████▋     | 51/109 [00:03<00:04, 13.14it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.12it/s] 50%|█████     | 55/109 [00:04<00:04, 13.16it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.07it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.16it/s] 56%|█████▌    | 61/109 [00:04<00:03, 12.98it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.19it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.07it/s] 61%|██████▏   | 67/109 [00:04<00:03, 13.15it/s] 63%|██████▎   | 69/109 [00:05<00:03, 13.11it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.14it/s] 67%|██████▋   | 73/109 [00:05<00:02, 13.08it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.17it/s] 71%|███████   | 77/109 [00:05<00:02, 13.11it/s] 72%|███████▏  | 79/109 [00:05<00:02, 13.10it/s] 74%|███████▍  | 81/109 [00:06<00:02, 13.13it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.08it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.18it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.08it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.17it/s] 83%|████████▎ | 91/109 [00:06<00:01, 13.08it/s] 85%|████████▌ | 93/109 [00:06<00:01, 13.18it/s] 87%|████████▋ | 95/109 [00:07<00:01, 13.07it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.13it/s] 91%|█████████ | 99/109 [00:07<00:00, 13.13it/s] 93%|█████████▎| 101/109 [00:07<00:00, 13.06it/s] 94%|█████████▍| 103/109 [00:07<00:00, 13.16it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.08it/s] 98%|█████████▊| 107/109 [00:08<00:00, 13.08it/s]100%|██████████| 109/109 [00:08<00:00, 13.03it/s]2022-09-01 09:12:25 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 12.92it/s]
+[INFO|trainer.py:722] 2022-09-01 09:12:25,947 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:12:25,951 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:12:25,952 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:12:25,952 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 18.24it/s]  5%|▍         | 5/109 [00:00<00:06, 15.74it/s]  6%|▋         | 7/109 [00:00<00:06, 14.94it/s]  8%|▊         | 9/109 [00:00<00:06, 14.55it/s] 10%|█         | 11/109 [00:00<00:06, 14.28it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.11it/s] 14%|█▍        | 15/109 [00:01<00:06, 14.04it/s] 16%|█▌        | 17/109 [00:01<00:06, 13.96it/s] 17%|█▋        | 19/109 [00:01<00:06, 13.94it/s] 19%|█▉        | 21/109 [00:01<00:06, 13.91it/s] 21%|██        | 23/109 [00:01<00:06, 13.85it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.50it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.42it/s] 27%|██▋       | 29/109 [00:02<00:05, 13.44it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.20it/s] 30%|███       | 33/109 [00:02<00:05, 13.28it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.21it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.24it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.11it/s] 38%|███▊      | 41/109 [00:02<00:05, 13.14it/s] 39%|███▉      | 43/109 [00:03<00:05, 13.15it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.13it/s] 43%|████▎     | 47/109 [00:03<00:04, 13.13it/s] 45%|████▍     | 49/109 [00:03<00:04, 13.17it/s] 47%|████▋     | 51/109 [00:03<00:04, 13.11it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.18it/s] 50%|█████     | 55/109 [00:04<00:04, 13.05it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.20it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.07it/s] 56%|█████▌    | 61/109 [00:04<00:03, 13.17it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.09it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.15it/s] 61%|██████▏   | 67/109 [00:04<00:03, 13.13it/s] 63%|██████▎   | 69/109 [00:05<00:03, 13.10it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.11it/s] 67%|██████▋   | 73/109 [00:05<00:02, 12.82it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.06it/s] 71%|███████   | 77/109 [00:05<00:02, 12.98it/s] 72%|███████▏  | 79/109 [00:05<00:02, 13.08it/s] 74%|███████▍  | 81/109 [00:06<00:02, 13.03it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.06it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.00it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.12it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.05it/s] 83%|████████▎ | 91/109 [00:06<00:01, 13.11it/s] 85%|████████▌ | 93/109 [00:06<00:01, 13.02it/s] 87%|████████▋ | 95/109 [00:07<00:01, 13.15it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.07it/s] 91%|█████████ | 99/109 [00:07<00:00, 13.12it/s] 93%|█████████▎| 101/109 [00:07<00:00, 13.02it/s] 94%|█████████▍| 103/109 [00:07<00:00, 13.12it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.02it/s] 98%|█████████▊| 107/109 [00:08<00:00, 13.12it/s]100%|██████████| 109/109 [00:08<00:00, 13.01it/s]2022-09-01 09:12:34 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 12.99it/s]
+[INFO|trainer.py:722] 2022-09-01 09:12:34,515 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:12:34,519 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:12:34,519 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:12:34,519 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 17.96it/s]  5%|▍         | 5/109 [00:00<00:06, 15.74it/s]  6%|▋         | 7/109 [00:00<00:06, 14.92it/s]  8%|▊         | 9/109 [00:00<00:06, 14.53it/s] 10%|█         | 11/109 [00:00<00:06, 14.26it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.16it/s] 14%|█▍        | 15/109 [00:01<00:06, 14.06it/s] 16%|█▌        | 17/109 [00:01<00:06, 13.99it/s] 17%|█▋        | 19/109 [00:01<00:06, 13.97it/s] 19%|█▉        | 21/109 [00:01<00:06, 13.83it/s] 21%|██        | 23/109 [00:01<00:06, 13.54it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.47it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.28it/s] 27%|██▋       | 29/109 [00:02<00:06, 13.33it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.11it/s] 30%|███       | 33/109 [00:02<00:05, 13.20it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.09it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.18it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.13it/s] 38%|███▊      | 41/109 [00:02<00:05, 13.14it/s] 39%|███▉      | 43/109 [00:03<00:05, 13.12it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.06it/s] 43%|████▎     | 47/109 [00:03<00:04, 13.18it/s] 45%|████▍     | 49/109 [00:03<00:04, 13.01it/s] 47%|████▋     | 51/109 [00:03<00:04, 13.09it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.08it/s] 50%|█████     | 55/109 [00:04<00:04, 13.06it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.17it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.07it/s] 56%|█████▌    | 61/109 [00:04<00:03, 13.19it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.06it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.11it/s] 61%|██████▏   | 67/109 [00:04<00:03, 13.11it/s] 63%|██████▎   | 69/109 [00:05<00:03, 13.03it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.16it/s] 67%|██████▋   | 73/109 [00:05<00:02, 13.06it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.12it/s] 71%|███████   | 77/109 [00:05<00:02, 13.06it/s] 72%|███████▏  | 79/109 [00:05<00:02, 13.06it/s] 74%|███████▍  | 81/109 [00:06<00:02, 13.15it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.07it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.20it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.05it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.21it/s] 83%|████████▎ | 91/109 [00:06<00:01, 13.08it/s] 85%|████████▌ | 93/109 [00:06<00:01, 13.10it/s] 87%|████████▋ | 95/109 [00:07<00:01, 12.98it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.15it/s] 91%|█████████ | 99/109 [00:07<00:00, 13.07it/s] 93%|█████████▎| 101/109 [00:07<00:00, 13.08it/s] 94%|█████████▍| 103/109 [00:07<00:00, 13.03it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.11it/s] 98%|█████████▊| 107/109 [00:08<00:00, 13.04it/s]100%|██████████| 109/109 [00:08<00:00, 13.05it/s]2022-09-01 09:12:43 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 13.00it/s]
+[INFO|trainer.py:722] 2022-09-01 09:12:43,077 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:12:43,081 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:12:43,081 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:12:43,081 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 19.19it/s]  5%|▍         | 5/109 [00:00<00:06, 16.14it/s]  6%|▋         | 7/109 [00:00<00:06, 15.07it/s]  8%|▊         | 9/109 [00:00<00:06, 14.61it/s] 10%|█         | 11/109 [00:00<00:06, 14.37it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.22it/s] 14%|█▍        | 15/109 [00:01<00:06, 14.10it/s] 16%|█▌        | 17/109 [00:01<00:06, 14.02it/s] 17%|█▋        | 19/109 [00:01<00:06, 13.97it/s] 19%|█▉        | 21/109 [00:01<00:06, 13.62it/s] 21%|██        | 23/109 [00:01<00:06, 13.53it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.32it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.24it/s] 27%|██▋       | 29/109 [00:02<00:06, 13.18it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.21it/s] 30%|███       | 33/109 [00:02<00:05, 13.10it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.17it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.06it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.13it/s] 38%|███▊      | 41/109 [00:02<00:05, 13.18it/s] 39%|███▉      | 43/109 [00:03<00:05, 13.02it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.14it/s] 43%|████▎     | 47/109 [00:03<00:04, 13.09it/s] 45%|████▍     | 49/109 [00:03<00:04, 13.10it/s] 47%|████▋     | 51/109 [00:03<00:04, 13.15it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.06it/s] 50%|█████     | 55/109 [00:04<00:04, 13.16it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.05it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.13it/s] 56%|█████▌    | 61/109 [00:04<00:03, 13.03it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.12it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.13it/s] 61%|██████▏   | 67/109 [00:04<00:03, 13.08it/s] 63%|██████▎   | 69/109 [00:05<00:03, 13.14it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.09it/s] 67%|██████▋   | 73/109 [00:05<00:02, 13.06it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.12it/s] 71%|███████   | 77/109 [00:05<00:02, 13.04it/s] 72%|███████▏  | 79/109 [00:05<00:02, 13.10it/s] 74%|███████▍  | 81/109 [00:06<00:02, 13.11it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.07it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.14it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.02it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.13it/s] 83%|████████▎ | 91/109 [00:06<00:01, 13.05it/s] 85%|████████▌ | 93/109 [00:06<00:01, 13.09it/s] 87%|████████▋ | 95/109 [00:07<00:01, 13.10it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.04it/s] 91%|█████████ | 99/109 [00:07<00:00, 13.10it/s] 93%|█████████▎| 101/109 [00:07<00:00, 13.07it/s] 94%|█████████▍| 103/109 [00:07<00:00, 13.01it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.07it/s] 98%|█████████▊| 107/109 [00:08<00:00, 13.10it/s]100%|██████████| 109/109 [00:08<00:00, 13.02it/s]2022-09-01 09:12:51 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 12.98it/s]
+[INFO|trainer.py:722] 2022-09-01 09:12:51,639 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:12:51,643 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:12:51,643 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:12:51,643 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 17.75it/s]  5%|▍         | 5/109 [00:00<00:06, 15.57it/s]  6%|▋         | 7/109 [00:00<00:06, 14.73it/s]  8%|▊         | 9/109 [00:00<00:06, 14.42it/s] 10%|█         | 11/109 [00:00<00:06, 14.16it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.03it/s] 14%|█▍        | 15/109 [00:01<00:06, 13.95it/s] 16%|█▌        | 17/109 [00:01<00:06, 13.94it/s] 17%|█▋        | 19/109 [00:01<00:06, 13.93it/s] 19%|█▉        | 21/109 [00:01<00:06, 13.83it/s] 21%|██        | 23/109 [00:01<00:06, 13.52it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.34it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.27it/s] 27%|██▋       | 29/109 [00:02<00:06, 13.21it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.15it/s] 30%|███       | 33/109 [00:02<00:05, 13.14it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.07it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.05it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.14it/s] 38%|███▊      | 41/109 [00:03<00:05, 12.93it/s] 39%|███▉      | 43/109 [00:03<00:05, 13.02it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.00it/s] 43%|████▎     | 47/109 [00:03<00:04, 13.07it/s] 45%|████▍     | 49/109 [00:03<00:04, 12.98it/s] 47%|████▋     | 51/109 [00:03<00:04, 13.06it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.02it/s] 50%|█████     | 55/109 [00:04<00:04, 13.05it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.10it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.00it/s] 56%|█████▌    | 61/109 [00:04<00:03, 13.07it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.01it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.02it/s] 61%|██████▏   | 67/109 [00:05<00:03, 13.04it/s] 63%|██████▎   | 69/109 [00:05<00:03, 13.00it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.11it/s] 67%|██████▋   | 73/109 [00:05<00:02, 13.03it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.08it/s] 71%|███████   | 77/109 [00:05<00:02, 13.09it/s] 72%|███████▏  | 79/109 [00:05<00:02, 13.03it/s] 74%|███████▍  | 81/109 [00:06<00:02, 13.10it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.00it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.09it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.02it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.11it/s] 83%|████████▎ | 91/109 [00:06<00:01, 13.03it/s] 85%|████████▌ | 93/109 [00:06<00:01, 13.11it/s] 87%|████████▋ | 95/109 [00:07<00:01, 13.10it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.05it/s] 91%|█████████ | 99/109 [00:07<00:00, 13.10it/s] 93%|█████████▎| 101/109 [00:07<00:00, 13.01it/s] 94%|█████████▍| 103/109 [00:07<00:00, 13.09it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.03it/s] 98%|█████████▊| 107/109 [00:08<00:00, 13.11it/s]100%|██████████| 109/109 [00:08<00:00, 13.02it/s]2022-09-01 09:13:00 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 12.88it/s]
+[INFO|trainer.py:722] 2022-09-01 09:13:00,272 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:13:00,277 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:13:00,277 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:13:00,277 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 17.87it/s]  5%|▍         | 5/109 [00:00<00:06, 15.65it/s]  6%|▋         | 7/109 [00:00<00:06, 14.91it/s]  8%|▊         | 9/109 [00:00<00:06, 14.50it/s] 10%|█         | 11/109 [00:00<00:06, 14.22it/s] 12%|█▏        | 13/109 [00:00<00:06, 13.99it/s] 14%|█▍        | 15/109 [00:01<00:06, 13.97it/s] 16%|█▌        | 17/109 [00:01<00:06, 13.93it/s] 17%|█▋        | 19/109 [00:01<00:06, 13.91it/s] 19%|█▉        | 21/109 [00:01<00:06, 13.81it/s] 21%|██        | 23/109 [00:01<00:06, 13.49it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.40it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.23it/s] 27%|██▋       | 29/109 [00:02<00:06, 13.29it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.02it/s] 30%|███       | 33/109 [00:02<00:05, 13.18it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.17it/s] 34%|███▍      | 37/109 [00:02<00:05, 12.93it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.08it/s] 38%|███▊      | 41/109 [00:03<00:05, 13.05it/s] 39%|███▉      | 43/109 [00:03<00:05, 13.05it/s] 41%|████▏     | 45/109 [00:03<00:04, 12.98it/s] 43%|████▎     | 47/109 [00:03<00:04, 13.06it/s] 45%|████▍     | 49/109 [00:03<00:04, 12.97it/s] 47%|████▋     | 51/109 [00:03<00:04, 13.07it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.01it/s] 50%|█████     | 55/109 [00:04<00:04, 13.07it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.08it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.01it/s] 56%|█████▌    | 61/109 [00:04<00:03, 13.07it/s] 58%|█████▊    | 63/109 [00:04<00:03, 12.98it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.10it/s] 61%|██████▏   | 67/109 [00:05<00:03, 12.97it/s] 63%|██████▎   | 69/109 [00:05<00:03, 13.06it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.08it/s] 67%|██████▋   | 73/109 [00:05<00:02, 12.98it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.06it/s] 71%|███████   | 77/109 [00:05<00:02, 13.07it/s] 72%|███████▏  | 79/109 [00:05<00:02, 12.99it/s] 74%|███████▍  | 81/109 [00:06<00:02, 13.08it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.02it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.05it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.03it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.07it/s] 83%|████████▎ | 91/109 [00:06<00:01, 12.97it/s] 85%|████████▌ | 93/109 [00:06<00:01, 13.08it/s] 87%|████████▋ | 95/109 [00:07<00:01, 13.00it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.07it/s] 91%|█████████ | 99/109 [00:07<00:00, 12.98it/s] 93%|█████████▎| 101/109 [00:07<00:00, 13.09it/s] 94%|█████████▍| 103/109 [00:07<00:00, 13.01it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.00it/s] 98%|█████████▊| 107/109 [00:08<00:00, 13.07it/s]100%|██████████| 109/109 [00:08<00:00, 12.98it/s]2022-09-01 09:13:08 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 12.79it/s]
+[INFO|trainer.py:722] 2022-09-01 09:13:08,969 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:13:08,973 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:13:08,973 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:13:08,973 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 18.02it/s]  5%|▍         | 5/109 [00:00<00:06, 15.64it/s]  6%|▋         | 7/109 [00:00<00:06, 14.74it/s]  8%|▊         | 9/109 [00:00<00:06, 14.39it/s] 10%|█         | 11/109 [00:00<00:06, 14.22it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.13it/s] 14%|█▍        | 15/109 [00:01<00:06, 14.04it/s] 16%|█▌        | 17/109 [00:01<00:06, 13.99it/s] 17%|█▋        | 19/109 [00:01<00:06, 13.90it/s] 19%|█▉        | 21/109 [00:01<00:06, 13.89it/s] 21%|██        | 23/109 [00:01<00:06, 13.63it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.27it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.33it/s] 27%|██▋       | 29/109 [00:02<00:06, 13.14it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.19it/s] 30%|███       | 33/109 [00:02<00:05, 13.20it/s] 32%|███▏      | 35/109 [00:02<00:05, 12.96it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.04it/s] 36%|███▌      | 39/109 [00:02<00:05, 13.08it/s] 38%|███▊      | 41/109 [00:03<00:05, 12.99it/s] 39%|███▉      | 43/109 [00:03<00:05, 13.01it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.05it/s] 43%|████▎     | 47/109 [00:03<00:04, 12.96it/s] 45%|████▍     | 49/109 [00:03<00:04, 13.05it/s] 47%|████▋     | 51/109 [00:03<00:04, 12.97it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.03it/s] 50%|█████     | 55/109 [00:04<00:04, 13.04it/s] 52%|█████▏    | 57/109 [00:04<00:03, 13.01it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.09it/s] 56%|█████▌    | 61/109 [00:04<00:03, 12.96it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.00it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.02it/s] 61%|██████▏   | 67/109 [00:05<00:03, 12.95it/s] 63%|██████▎   | 69/109 [00:05<00:03, 13.03it/s] 65%|██████▌   | 71/109 [00:05<00:02, 12.95it/s] 67%|██████▋   | 73/109 [00:05<00:02, 13.03it/s] 69%|██████▉   | 75/109 [00:05<00:02, 12.99it/s] 71%|███████   | 77/109 [00:05<00:02, 13.05it/s] 72%|███████▏  | 79/109 [00:05<00:02, 13.07it/s] 74%|███████▍  | 81/109 [00:06<00:02, 13.01it/s] 76%|███████▌  | 83/109 [00:06<00:01, 13.06it/s] 78%|███████▊  | 85/109 [00:06<00:01, 12.96it/s] 80%|███████▉  | 87/109 [00:06<00:01, 13.04it/s] 82%|████████▏ | 89/109 [00:06<00:01, 12.97it/s] 83%|████████▎ | 91/109 [00:06<00:01, 13.01it/s] 85%|████████▌ | 93/109 [00:07<00:01, 13.03it/s] 87%|████████▋ | 95/109 [00:07<00:01, 12.95it/s] 89%|████████▉ | 97/109 [00:07<00:00, 13.02it/s] 91%|█████████ | 99/109 [00:07<00:00, 12.92it/s] 93%|█████████▎| 101/109 [00:07<00:00, 12.99it/s] 94%|█████████▍| 103/109 [00:07<00:00, 12.94it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.03it/s] 98%|█████████▊| 107/109 [00:08<00:00, 13.02it/s]100%|██████████| 109/109 [00:08<00:00, 12.99it/s]2022-09-01 09:13:17 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 12.97it/s]
+[INFO|trainer.py:722] 2022-09-01 09:13:17,549 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:13:17,553 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:13:17,553 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:13:17,553 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 18.31it/s]  5%|▍         | 5/109 [00:00<00:06, 15.81it/s]  6%|▋         | 7/109 [00:00<00:06, 14.98it/s]  8%|▊         | 9/109 [00:00<00:06, 14.52it/s] 10%|█         | 11/109 [00:00<00:06, 14.26it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.07it/s] 14%|█▍        | 15/109 [00:01<00:06, 13.97it/s] 16%|█▌        | 17/109 [00:01<00:06, 13.95it/s] 17%|█▋        | 19/109 [00:01<00:06, 13.86it/s] 19%|█▉        | 21/109 [00:01<00:06, 13.50it/s] 21%|██        | 23/109 [00:01<00:06, 13.38it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.21it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.15it/s] 27%|██▋       | 29/109 [00:02<00:06, 13.11it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.02it/s] 30%|███       | 33/109 [00:02<00:05, 13.04it/s] 32%|███▏      | 35/109 [00:02<00:05, 13.04it/s] 34%|███▍      | 37/109 [00:02<00:05, 12.99it/s] 36%|███▌      | 39/109 [00:02<00:05, 12.98it/s] 38%|███▊      | 41/109 [00:03<00:05, 13.03it/s] 39%|███▉      | 43/109 [00:03<00:05, 13.06it/s] 41%|████▏     | 45/109 [00:03<00:04, 12.99it/s] 43%|████▎     | 47/109 [00:03<00:04, 12.96it/s] 45%|████▍     | 49/109 [00:03<00:04, 12.99it/s] 47%|████▋     | 51/109 [00:03<00:04, 12.92it/s] 49%|████▊     | 53/109 [00:03<00:04, 12.99it/s] 50%|█████     | 55/109 [00:04<00:04, 13.00it/s] 52%|█████▏    | 57/109 [00:04<00:04, 12.96it/s] 54%|█████▍    | 59/109 [00:04<00:03, 13.03it/s] 56%|█████▌    | 61/109 [00:04<00:03, 12.92it/s] 58%|█████▊    | 63/109 [00:04<00:03, 13.05it/s] 60%|█████▉    | 65/109 [00:04<00:03, 12.96it/s] 61%|██████▏   | 67/109 [00:05<00:03, 13.04it/s] 63%|██████▎   | 69/109 [00:05<00:03, 12.92it/s] 65%|██████▌   | 71/109 [00:05<00:02, 13.06it/s] 67%|██████▋   | 73/109 [00:05<00:02, 12.97it/s] 69%|██████▉   | 75/109 [00:05<00:02, 13.04it/s] 71%|███████   | 77/109 [00:05<00:02, 12.93it/s] 72%|███████▏  | 79/109 [00:05<00:02, 12.99it/s] 74%|███████▍  | 81/109 [00:06<00:02, 12.95it/s] 76%|███████▌  | 83/109 [00:06<00:02, 12.99it/s] 78%|███████▊  | 85/109 [00:06<00:01, 13.03it/s] 80%|███████▉  | 87/109 [00:06<00:01, 12.96it/s] 82%|████████▏ | 89/109 [00:06<00:01, 13.01it/s] 83%|████████▎ | 91/109 [00:06<00:01, 12.95it/s] 85%|████████▌ | 93/109 [00:07<00:01, 12.98it/s] 87%|████████▋ | 95/109 [00:07<00:01, 12.96it/s] 89%|████████▉ | 97/109 [00:07<00:00, 12.98it/s] 91%|█████████ | 99/109 [00:07<00:00, 12.92it/s] 93%|█████████▎| 101/109 [00:07<00:00, 12.97it/s] 94%|█████████▍| 103/109 [00:07<00:00, 12.95it/s] 96%|█████████▋| 105/109 [00:07<00:00, 12.97it/s] 98%|█████████▊| 107/109 [00:08<00:00, 12.89it/s]100%|██████████| 109/109 [00:08<00:00, 12.98it/s]2022-09-01 09:13:26 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 12.83it/s]
+[INFO|trainer.py:722] 2022-09-01 09:13:26,215 >> The following columns in the evaluation set don't have a corresponding argument in `AlbertForSequenceClassification.forward` and have been ignored: sentence, idx. If sentence, idx are not expected by `AlbertForSequenceClassification.forward`,  you can safely ignore this message.
+[INFO|trainer.py:2891] 2022-09-01 09:13:26,219 >> ***** Running Evaluation *****
+[INFO|trainer.py:2893] 2022-09-01 09:13:26,219 >>   Num examples = 872
+[INFO|trainer.py:2896] 2022-09-01 09:13:26,219 >>   Batch size = 8
+  0%|          | 0/109 [00:00<?, ?it/s]  3%|▎         | 3/109 [00:00<00:05, 18.75it/s]  5%|▍         | 5/109 [00:00<00:06, 16.00it/s]  6%|▋         | 7/109 [00:00<00:06, 15.00it/s]  8%|▊         | 9/109 [00:00<00:06, 14.52it/s] 10%|█         | 11/109 [00:00<00:06, 14.27it/s] 12%|█▏        | 13/109 [00:00<00:06, 14.15it/s] 14%|█▍        | 15/109 [00:01<00:06, 14.05it/s] 16%|█▌        | 17/109 [00:01<00:06, 13.95it/s] 17%|█▋        | 19/109 [00:01<00:06, 13.92it/s] 19%|█▉        | 21/109 [00:01<00:06, 13.68it/s] 21%|██        | 23/109 [00:01<00:06, 13.19it/s] 23%|██▎       | 25/109 [00:01<00:06, 13.17it/s] 25%|██▍       | 27/109 [00:01<00:06, 13.24it/s] 27%|██▋       | 29/109 [00:02<00:06, 12.96it/s] 28%|██▊       | 31/109 [00:02<00:05, 13.10it/s] 30%|███       | 33/109 [00:02<00:05, 13.06it/s] 32%|███▏      | 35/109 [00:02<00:05, 12.91it/s] 34%|███▍      | 37/109 [00:02<00:05, 13.06it/s] 36%|███▌      | 39/109 [00:02<00:05, 12.88it/s] 38%|███▊      | 41/109 [00:03<00:05, 13.04it/s] 39%|███▉      | 43/109 [00:03<00:05, 12.91it/s] 41%|████▏     | 45/109 [00:03<00:04, 13.02it/s] 43%|████▎     | 47/109 [00:03<00:04, 12.92it/s] 45%|████▍     | 49/109 [00:03<00:04, 13.07it/s] 47%|████▋     | 51/109 [00:03<00:04, 12.97it/s] 49%|████▊     | 53/109 [00:03<00:04, 13.00it/s] 50%|█████     | 55/109 [00:04<00:04, 12.92it/s] 52%|█████▏    | 57/109 [00:04<00:04, 12.97it/s] 54%|█████▍    | 59/109 [00:04<00:03, 12.99it/s] 56%|█████▌    | 61/109 [00:04<00:03, 13.00it/s] 58%|█████▊    | 63/109 [00:04<00:03, 12.90it/s] 60%|█████▉    | 65/109 [00:04<00:03, 13.00it/s] 61%|██████▏   | 67/109 [00:05<00:03, 12.86it/s] 63%|██████▎   | 69/109 [00:05<00:03, 12.99it/s] 65%|██████▌   | 71/109 [00:05<00:02, 12.86it/s] 67%|██████▋   | 73/109 [00:05<00:02, 12.99it/s] 69%|██████▉   | 75/109 [00:05<00:02, 12.92it/s] 71%|███████   | 77/109 [00:05<00:02, 12.92it/s] 72%|███████▏  | 79/109 [00:05<00:02, 12.98it/s] 74%|███████▍  | 81/109 [00:06<00:02, 12.92it/s] 76%|███████▌  | 83/109 [00:06<00:02, 12.95it/s] 78%|███████▊  | 85/109 [00:06<00:01, 12.87it/s] 80%|███████▉  | 87/109 [00:06<00:01, 12.89it/s] 82%|████████▏ | 89/109 [00:06<00:01, 12.85it/s] 83%|████████▎ | 91/109 [00:06<00:01, 12.86it/s] 85%|████████▌ | 93/109 [00:07<00:01, 12.93it/s] 87%|████████▋ | 95/109 [00:07<00:01, 12.93it/s] 89%|████████▉ | 97/109 [00:07<00:00, 12.93it/s] 91%|█████████ | 99/109 [00:07<00:00, 12.82it/s] 93%|█████████▎| 101/109 [00:07<00:00, 12.97it/s] 94%|█████████▍| 103/109 [00:07<00:00, 12.81it/s] 96%|█████████▋| 105/109 [00:07<00:00, 13.00it/s] 98%|█████████▊| 107/109 [00:08<00:00, 12.92it/s]100%|██████████| 109/109 [00:08<00:00, 12.95it/s]2022-09-01 09:13:34 [INFO] Removing /home2/longxin/.cache/huggingface/metrics/glue/sst2/default_experiment-1-0.arrow
+100%|██████████| 109/109 [00:08<00:00, 12.90it/s]
+Neural_Coder_Bench_IPS:  0.116
+Neural_Coder_Bench_MSPI:  8607.221
+Neural_Coder_Bench_P50:  8586.322
+Neural_Coder_Bench_P90:  8665.926
+Neural_Coder_Bench_P99:  8665.926

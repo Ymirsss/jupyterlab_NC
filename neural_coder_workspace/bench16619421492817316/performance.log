@@ -1,0 +1,36 @@
+=> using pre-trained model 'alexnet'
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+using CPU, this will be slow
+Traceback (most recent call last):
+  File "/home2/longxin/Neural_Coder_EXT/tmp.py", line 633, in <module>
+    main()
+  File "/home2/longxin/Neural_Coder_EXT/tmp.py", line 117, in main
+    main_worker(args.gpu, ngpus_per_node, args)
+  File "/home2/longxin/Neural_Coder_EXT/tmp.py", line 301, in main_worker
+    from neural_compressor.conf.config import QuantConf
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/neural_compressor-1.11-py3.9-linux-x86_64.egg/neural_compressor/__init__.py", line 22, in <module>
+    from .contrib import *
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/neural_compressor-1.11-py3.9-linux-x86_64.egg/neural_compressor/contrib/__init__.py", line 18, in <module>
+    from .strategy import *
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/neural_compressor-1.11-py3.9-linux-x86_64.egg/neural_compressor/contrib/strategy/__init__.py", line 25, in <module>
+    __import__(basename(f)[:-3], globals(), locals(), level=1)
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/neural_compressor-1.11-py3.9-linux-x86_64.egg/neural_compressor/contrib/strategy/sigopt.py", line 21, in <module>
+    from sigopt import Connection
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/sigopt/__init__.py", line 7, in <module>
+    from .magics import SigOptMagics as _Magics
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/sigopt/magics.py", line 15, in <module>
+    from .cli.commands.config import API_TOKEN_PROMPT, LOG_COLLECTION_PROMPT, CELL_TRACKING_PROMPT
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/sigopt/cli/__init__.py", line 1, in <module>
+    from sigopt.cli.commands import sigopt_cli as cli
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/sigopt/cli/commands/__init__.py", line 1, in <module>
+    import sigopt.cli.commands.cluster
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/sigopt/cli/commands/cluster/__init__.py", line 1, in <module>
+    import sigopt.cli.commands.cluster.base
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/sigopt/cli/commands/cluster/base.py", line 3, in <module>
+    from sigopt.orchestrate.controller import OrchestrateController
+  File "/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/sigopt/orchestrate/controller.py", line 8, in <module>
+    from botocore.exceptions import NoRegionError
+ModuleNotFoundError: No module named 'botocore.exceptions'

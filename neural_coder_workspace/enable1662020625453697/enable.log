@@ -1,0 +1,6 @@
+2022-09-01 16:23:45 - neural_coder_workspace/enable1662020625453697/ - INFO: - Enabling started ...
+2022-09-01 16:23:45 - neural_coder_workspace/enable1662020625453697/ - INFO: - code: /home2/longxin/Neural_Coder_EXT/tmp.py
+2022-09-01 16:23:45 - neural_coder_workspace/enable1662020625453697/ - INFO: - features: ['pytorch_inc_dynamic_quant']
+2022-09-01 16:23:45 - neural_coder_workspace/enable1662020625453697/ - INFO: - Performing code transformation for feature: [pytorch_inc_dynamic_quant] ...
+2022-09-01 16:23:45 - neural_coder_workspace/enable1662020625453697/ - INFO: - Code transformation for feature: [pytorch_inc_dynamic_quant] finished.
+2022-09-01 16:23:46 - neural_coder_workspace/enable1662020625453697/ - INFO: - The patch is saved to: [/home2/longxin/Neural_Coder_EXT/neural_coder_workspace/enable1662020625453697/neural_coder_patch.diff]

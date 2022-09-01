@@ -1,0 +1,24 @@
+=> using pre-trained model 'alexnet'
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home2/longxin/ls/envs/jupyterlab-ext/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=AlexNet_Weights.IMAGENET1K_V1`. You can also use `weights=AlexNet_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+2022-08-31 20:31:36 [WARNING] Force convert framework model to neural_compressor model.
+2022-08-31 20:31:37 [INFO] Pass query framework capability elapsed time: 0.86 ms
+2022-08-31 20:31:37 [WARNING] None of the submodule got qconfig applied. Make sure you passed correct configuration through `qconfig_dict` or by assigning the `.qconfig` attribute directly on submodules.
+2022-08-31 20:31:37 [INFO] |*****Mixed Precision Statistics*****|
+2022-08-31 20:31:37 [INFO] +--------------+-----------+---------+
+2022-08-31 20:31:37 [INFO] |   Op Type    |   Total   |   BF16  |
+2022-08-31 20:31:37 [INFO] +--------------+-----------+---------+
+2022-08-31 20:31:37 [INFO] |    Linear    |     3     |    3    |
+2022-08-31 20:31:37 [INFO] +--------------+-----------+---------+
+2022-08-31 20:31:37 [INFO] Pass quantize model elapsed time: 16.35 ms
+2022-08-31 20:31:37 [INFO] Specified timeout or max trials is reached! Found a converted model which meet accuracy goal. Exit.
+2022-08-31 20:31:37 [INFO] Save deploy yaml to /home2/longxin/Neural_Coder_EXT/nc_workspace/2022-08-31_20-31-33/deploy.yaml
+2022-08-31 20:31:37 [INFO] Mixed Precision is done. Please invoke model.save() to save optimized model to disk.
+using CPU, this will be slow
+Neural_Coder_Bench_IPS:  8.402
+Neural_Coder_Bench_MSPI:  119.017
+Neural_Coder_Bench_P50:  118.935
+Neural_Coder_Bench_P90:  119.235
+Neural_Coder_Bench_P99:  119.235
